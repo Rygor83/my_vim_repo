@@ -49,3 +49,6 @@
 [submodule "pack/rygor/opt/python-mode"]
 	path = pack/rygor/opt/python-mode
 	url = https://github.com/python-mode/python-mode
+[submodule "pack/rygor/opt/tasklist"]
+	path = pack/rygor/opt/tasklist
+	url = https://github.com/vim-scripts/TaskList.vim
