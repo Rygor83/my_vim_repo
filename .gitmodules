@@ -52,3 +52,6 @@
 [submodule "pack/rygor/opt/tasklist"]
 	path = pack/rygor/opt/tasklist
 	url = https://github.com/vim-scripts/TaskList.vim
+[submodule "pack/rygor/opt/jedi-vim"]
+	path = pack/rygor/opt/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim
