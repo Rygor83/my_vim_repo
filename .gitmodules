@@ -55,3 +55,6 @@
 [submodule "pack/rygor/opt/jedi-vim"]
 	path = pack/rygor/opt/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim
+[submodule "pack/rygor/opt/vim-pathogen"]
+	path = pack/rygor/opt/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen
