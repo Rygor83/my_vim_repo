@@ -46,3 +46,6 @@
 [submodule "pack/rygor/opt/vim-surround"]
 	path = pack/rygor/opt/vim-surround
 	url = https://github.com/tpope/vim-surround
+[submodule "pack/rygor/opt/python-mode"]
+	path = pack/rygor/opt/python-mode
+	url = https://github.com/python-mode/python-mode
