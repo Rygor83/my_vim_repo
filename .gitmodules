@@ -38,7 +38,7 @@
 	path = pack/rygor/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule "pack/rygor/opt/vim-fugitiv"]
-	path = pack/rygor/opt/vim-fugitiv
+	path = pack/rygor/start/vim-fugitiv
 	url = https://github.com/tpope/vim-fugitive
 [submodule "pack/rygor/opt/vim-repeat"]
 	path = pack/rygor/opt/vim-repeat
