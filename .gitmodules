@@ -29,19 +29,19 @@
 	path = pack/rygor/opt/vim-table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode
 [submodule "pack/rygor/opt/vim-abolish"]
-	path = pack/rygor/opt/vim-abolish
+	path = pack/rygor/start/vim-abolish
 	url = https://github.com/tpope/vim-abolish
 [submodule "pack/rygor/opt/vim-commentary"]
-	path = pack/rygor/opt/vim-commentary
+	path = pack/rygor/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary
 [submodule "pack/rygor/opt/vim-fugitiv"]
 	path = pack/rygor/start/vim-fugitiv
 	url = https://github.com/tpope/vim-fugitive
 [submodule "pack/rygor/opt/vim-repeat"]
-	path = pack/rygor/opt/vim-repeat
+	path = pack/rygor/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
 [submodule "pack/rygor/opt/vim-surround"]
-	path = pack/rygor/opt/vim-surround
+	path = pack/rygor/start/vim-surround
 	url = https://github.com/tpope/vim-surround
 [submodule "pack/rygor/opt/tasklist"]
 	path = pack/rygor/opt/tasklist
