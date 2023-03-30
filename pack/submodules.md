@@ -57,6 +57,8 @@ cd ~/.vim
 git submodule deinit pack/plugins/start/foo
 git rm -r pack/plugins/start/foo
 rm -r .git/modules/pack/plugins/start/foo
+или
+del /s /q .git/modules/pack/plugins/start/foo
 ```
 
 ### Updating plugins
