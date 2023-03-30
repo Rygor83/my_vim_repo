@@ -46,9 +46,6 @@
 [submodule "pack/rygor/opt/vim-surround"]
 	path = pack/rygor/opt/vim-surround
 	url = https://github.com/tpope/vim-surround
-[submodule "pack/rygor/opt/python-mode"]
-	path = pack/rygor/opt/python-mode
-	url = https://github.com/python-mode/python-mode
 [submodule "pack/rygor/opt/tasklist"]
 	path = pack/rygor/opt/tasklist
 	url = https://github.com/vim-scripts/TaskList.vim
@@ -67,3 +64,6 @@
 [submodule "pack/rygor/opt/vim-snipmate"]
 	path = pack/rygor/opt/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
+[submodule "pack/rygor/opt/vim-devicons"]
+	path = pack/rygor/opt/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons
