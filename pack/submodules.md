@@ -72,6 +72,10 @@ To update all the plugins:
 cd ~/.vim
 git submodule foreach git pull origin master
 ```
+Если ошибки, то можно и так
+```
+git submodule update --remote
+```
 
 Note that new commits to plugins create uncommitted changes in the main repository.
 Thus, after any updates in the submodules, you need to commit the main repository as well:
