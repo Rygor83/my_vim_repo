@@ -58,3 +58,9 @@
 [submodule "pack/rygor/opt/vim-snipmate"]
 	path = pack/rygor/opt/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate.git
+[submodule "pack/rygor/opt/vim-voom"]
+	path = pack/rygor/opt/vim-voom
+	url = https://github.com/vim-voom/VOoM
+[submodule "pack/rygor/opt/tlib_vim"]
+	path = pack/rygor/opt/tlib_vim
+	url = https://github.com/tomtom/tlib_vim
