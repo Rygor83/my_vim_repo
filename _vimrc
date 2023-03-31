@@ -18,7 +18,6 @@ set background=dark                     " Setting dark mode
 set magic                               " For regular expressions turn magic on
 set t_Co=256                            " Add true color support
 set termguicolors                       " Add true color support
-set magic                               " For regular expressions turn magic on
 set nofoldenable                        " Do not fold code
 set cmdheight=2                         " Set the command window height to 2 lines, to avoid many cases of having to press <Enter> to continue
 set wildmenu                            " Better command-line completion
@@ -31,21 +30,14 @@ set incsearch                           " search as characters are entered
 set autoindent                          " When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on. Useful for READMEs, etc.
 set laststatus=2                        " Always display the status line, even if only one window is displayed
 set showmatch                           " highlight matching [{()}]
-set expandtab                           " Use spaces instead of tabs
 
-
-" Attempt to determine the type of a file based on its name and possibly its
-" contents. Use this to allow intelligent auto-indenting for each filetype,
-" and for plugins that are filetype specific.
-if has('filetype')
-  filetype indent plugin on
-endif
+set list "Show special signs: Tabs, End Of Line, Nonbreaking space, etc
+set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
 
 " Enable syntax highlighting
 if has('syntax')
   syntax on
 endif
-
 
 "--------------------------------------------------------------
 " Временные файлы (своп, бэкап, история) и пути их хранения
@@ -81,7 +73,7 @@ set visualbell
 " Позволяет переключать язык RU-EN только в VIM без смены в ОС.
 " через сочетание CTRL-^ - переделал на F12
 "--------------------------------------------------------------
-set spelllang=ru_yo,en_us
+set spelllang=ru,en,de
 set nospell
 set keymap=russian-jcukenwin
 set iminsert=0
@@ -103,6 +95,7 @@ lmap <F12> <C-^>
 omap <F12> <C-^>
 "--------------------------------------------------------------
 
+" ----- PLUGINS -----------------------------------------------
 if has('packages')
         packadd! vim-airline
         packadd! vim-airline-themes
@@ -115,23 +108,22 @@ if has('packages')
         packadd! vim-markdown-toc
         packadd! vim-table-mode
         packadd! vim-voom
-        packadd! vim-abolish
-        packadd! vim-commentary
-        packadd! vim-fugitive       
-        packadd! vim-repeat
-        packadd! vim-surround
         packadd! python-mode
         packadd! tasklist
         packadd! jedi-vim
+        packadd! tlib_vim
+        packadd! vim-addon-mw-utils
+        packadd! vim-snipmate
+
 else
         source $vim/vimfiles/pack/rygor/opt/vim-pathogen/autoload/pathogen.vim
         call pathogen#infect('pack/rygor/opt/{}')
 endif
 
-
-
-
-
+" Attempt to determine the type of a file based on its name and possibly its
+" contents. Use this to allow intelligent auto-indenting for each filetype,
+" and for plugins that are filetype specific.
+filetype indent plugin on
 
 "--------------------------------------------------------------
 
@@ -140,12 +132,12 @@ set guifont=Cascadia_Mono:h12
 
 
 " Put these in an autocmd group, so that we can delete them easily.
-augroup vimrcEx
-  au!
+" augroup vimrcEx
+"   au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-augroup END
+"   " For all text files set 'textwidth' to 78 characters.
+"   autocmd FileType text setlocal textwidth=78
+" augroup END
 
 " Add optional packages.
 "
@@ -203,10 +195,14 @@ map <F3> :NERDTreeToggle<CR><CR>
 " open nerdtree with the current file selected
 nmap ,t :NERDTreeFind<CR><CR>
 " don;t show these file types
+set wildignore+=*.lnk,.*
+let NERDTreeRespectWildIgnore=1
 
 " auto open or close NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+set autochdir         " automatically change the current directory to the directory of the current file
 "--------------------------------------------------------------
 
 "--- TagBar ---------------------------------------------------
@@ -240,22 +236,24 @@ nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 
 "------------------------------------------------------------
 " General useful mappings
-
-" Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
-" which is the default
+"------------------------------------------------------------
+"Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default
 map Y y$
-
-" Map <C-L> (redraw screen) to also turn off search highlighting until the
-" next search
+"Map <C-L> (redraw screen) to also turn off search highlighting until the next search
 nnoremap <C-L> :nohl<CR><C-L>
-
-" TaskList настройки
-map <F2> :TaskList<CR> 	   " отобразить список тасков на F2
+"Scroll up in INSERT mode & Scroll down in INSERT mod
+inoremap <C-E> <C-X><C-E>
+inoremap <C-Y> <C-X><C-Y>
+"Отобразить список тасков на F2
+map <F2> :TaskList<CR>
+"If you like the scrolling to go a bit smoother, you can use these mappings make sure the '<' flag is not in 'cpoptions'
+map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
 "------------------------------------------------------------
 
 "------------------------------------------------------------
-"Cursor Mode Settings
-
+" Cursor Mode Settings
+"------------------------------------------------------------
 let &t_SI.="\e[5 q" "SI = INSERT mode
 let &t_SR.="\e[4 q" "SR = REPLACE mode
 let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
@@ -267,6 +265,7 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "  4 -> solid underscore
 "  5 -> blinking vertical bar
 "  6 -> solid vertical bar
+"-------------------------------------------------------------
 
 
 "-- PYTHON - :py3 for python3, :py for python2 --------------
@@ -282,11 +281,11 @@ let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 "    or
 "    F8 key
 "------------------------------------------------------------
-set pythonhome=d:\\Programms\\Python27
-set pythondll=d:\Programms\\Python27\\python27.dll
 set pythonthreehome=d:\\Programms\\Python311
 set pythonthreedll=d:\\Programms\\Python311\\python311.dll
 set pyxversion=3
+" set pythonhome=d:\\Programms\\Python27
+" set pythondll=d:\Programms\\Python27\\python27.dll
 autocmd FileType python map <buffer> <F8> :w<CR>:py3f %<CR>
 autocmd FileType python imap <buffer> <F8> <esc>:w<CR>:py3f %<CR>
 "------------------------------------------------------------
@@ -295,13 +294,14 @@ autocmd FileType python imap <buffer> <F8> <esc>:w<CR>:py3f %<CR>
 "=====================================================
 " Python-mode settings
 "=====================================================
+let g:pymode = 1
 " отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
 let g:pymode_rope = 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 
 " документация
-let g:pymode_doc = 0
+let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 " проверка кода
 let g:pymode_lint = 1
@@ -327,10 +327,19 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 
 " возможность запускать код
-let g:pymode_run = 0
+let g:pymode_run = 1
+let g:pymode_run_bind = '<leader>r'
 "-------------------------------------------------------------
 " Jedi-vim
 " Disable choose first function/method at autocomplete
 let g:jedi#popup_select_first = 0
 "-------------------------------------------------------------
+" VOOM use only python3
+let g:voom_python_versions = [3]
+"-------------------------------------------------------------
+let g:snipMate = { 'snippet_version' : 1 }
 
+"--- Аббривиатура --------------------------------------------
+let g:abolish_save_file = '$vim\vimfiles\after\plugin\abolish.vim'
+
+"-------------------------------------------------------------
