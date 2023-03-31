@@ -64,3 +64,6 @@
 [submodule "pack/rygor/opt/tlib_vim"]
 	path = pack/rygor/opt/tlib_vim
 	url = https://github.com/tomtom/tlib_vim
+[submodule "pack/rygor/opt/python-mode"]
+	path = pack/rygor/opt/python-mode
+	url = https://github.com/python-mode/python-mode
