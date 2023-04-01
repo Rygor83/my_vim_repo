@@ -42,15 +42,16 @@ endif
 "--------------------------------------------------------------
 " Временные файлы (своп, бэкап, история) и пути их хранения
 "--------------------------------------------------------------
-" Swap files
+let $backup_folder=$vim . '\vimfiles\temp' " Environemtn variable starts with $, so you can assign it to :set param=$env_var
+" Swap files folder: *.swp, *.swo
 set swapfile
-set directory=~/.vim/tempfiles
-" Backup files
+set directory=$backup_folder
+" Backup files folder: *~
 set backup
-set backupdir=~/.vim/tempfiles
-" Undo files
+set backupdir=$backup_folder
+" Undo files folder: same as initial file
 set undofile
-set undodir=~/.vim/tempfiles
+set undodir=$backup_folder
 
 " Make those folders automatically if they don't already exist.
 if !isdirectory(expand(&undodir))
@@ -71,7 +72,7 @@ set visualbell
 
 "--------------------------------------------------------------
 " Позволяет переключать язык RU-EN только в VIM без смены в ОС.
-" через сочетание CTRL-^ - переделал на F12
+" через сочетание CTRL-^ - переделал на F2
 "--------------------------------------------------------------
 set spelllang=ru,en,de
 set nospell
@@ -80,40 +81,40 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 " normal mode
-map <F12> <C-^> 
+map <F2> <C-^> 
 " insert mode
-imap <F12> <C-^> 
+imap <F2> <C-^> 
 " command line
-cmap <F12> <C-^>
+cmap <F2> <C-^>
 " terminal-job
-tmap <F12> <C-^>
+tmap <F2> <C-^>
 " insert & command line
-map! <F12> <C-^>
+map! <F2> <C-^>
 " insert, command-line, lang-arg
-lmap <F12> <C-^>
+lmap <F2> <C-^>
 " operator pending mode: when you type operator command, for example, d/c/f/t
-omap <F12> <C-^>
+omap <F2> <C-^>
 "--------------------------------------------------------------
 
 " ----- PLUGINS -----------------------------------------------
 if has('packages')
-        packadd! vim-airline
-        packadd! vim-airline-themes
         packadd! gruvbox
-        packadd! NERDTree
-        packadd! tagbar
-        packadd! vim-polyglot
+        " packadd! jedi-vim
         packadd! markdown-preview
-        packadd! vim-markdown
-        packadd! vim-markdown-toc
-        packadd! vim-table-mode
-        packadd! vim-voom
+        packadd! NERDTree
         packadd! python-mode
+        packadd! tagbar
         packadd! tasklist
-        packadd! jedi-vim
         packadd! tlib_vim
         packadd! vim-addon-mw-utils
+        packadd! vim-airline
+        packadd! vim-airline-themes
+        packadd! vim-markdown
+        packadd! vim-markdown-toc
+        packadd! vim-polyglot
         packadd! vim-snipmate
+        packadd! vim-table-mode
+        packadd! vim-voom
 
 else
         source $vim/vimfiles/pack/rygor/opt/vim-pathogen/autoload/pathogen.vim
@@ -131,20 +132,6 @@ let $LANG = 'en_US'
 set guifont=Cascadia_Mono:h12
 
 
-" Put these in an autocmd group, so that we can delete them easily.
-" augroup vimrcEx
-"   au!
-
-"   " For all text files set 'textwidth' to 78 characters.
-"   autocmd FileType text setlocal textwidth=78
-" augroup END
-
-" Add optional packages.
-"
-" The matchit plugin makes the % command work better, but it is not backwards
-" compatible.
-" The ! means the package won't be loaded right away but when plugins are
-" loaded during initialization.
 if has('syntax') && has('eval')
   packadd! matchit
 endif
@@ -210,7 +197,6 @@ nmap <F9> :TagbarToggle<CR>
 
 "--------------------------------------------------------------
 
-
 "--------------------------------------------------------------
 " Markdown Plugin with Preview: https://github.com/iamcco/markdown-preview.nvim
 " Назначение клавиш для работы с плагином
@@ -231,7 +217,6 @@ nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
 nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
 nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
 nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-
 "--------------------------------------------------------------
 
 "------------------------------------------------------------
@@ -245,7 +230,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 inoremap <C-E> <C-X><C-E>
 inoremap <C-Y> <C-X><C-Y>
 "Отобразить список тасков на F2
-map <F2> :TaskList<CR>
+map <F7> :TaskList<CR>
 "If you like the scrolling to go a bit smoother, you can use these mappings make sure the '<' flag is not in 'cpoptions'
 map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
 map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
@@ -329,17 +314,58 @@ let g:pymode_folding = 0
 " возможность запускать код
 let g:pymode_run = 1
 let g:pymode_run_bind = '<leader>r'
-"-------------------------------------------------------------
-" Jedi-vim
+"-----------------------------------------------------
+
+"=====================================================
+" Jedi-vim 
+"=====================================================
 " Disable choose first function/method at autocomplete
 let g:jedi#popup_select_first = 0
-"-------------------------------------------------------------
+"-----------------------------------------------------
+
+"=====================================================
+" VoOM - outliner 
+"=====================================================
 " VOOM use only python3
 let g:voom_python_versions = [3]
-"-------------------------------------------------------------
+autocmd FileType markdown nnoremap <buffer> <F4> :VoomToggle markdown <CR>
+" autocmd FileType python nnoremap <buffer> <F4> :VoomToogle python <CR>
+"-----------------------------------------------------
+
+"=====================================================
+" SnipMate 
+"=====================================================
 let g:snipMate = { 'snippet_version' : 1 }
+"-----------------------------------------------------
 
-"--- Аббривиатура --------------------------------------------
+"=====================================================
+" Vim-Abolish
+"=====================================================
+" Here lies abbreviation for Abolish
 let g:abolish_save_file = '$vim\vimfiles\after\plugin\abolish.vim'
+"-----------------------------------------------------
 
-"-------------------------------------------------------------
+"=====================================================
+" HelpMe
+"=====================================================
+let g:HelpMeItems = [
+    \ "Fx shortcuts:",
+    \ "<F2>               Language switch RU-EN",
+    \ "<F3>               NerdTree",
+    \ "<F4>               Outliner",
+    \ "<F7>               Task List",
+    \ "<F8>               Execute python Vim Std",
+    \ "\\r                 Execute python Python-mode",
+    \ "<F9>               Tags Toggle",
+    \ "<F11>              Paste mode",
+    \ "",
+    \ "Completion:",
+    \ "Ctrl-X, Ctrl-I     <I>nsert words from file",
+    \ "Ctrl-X, Ctrl-F     <F>ile's path insert",
+    \ "Ctrl-X, Ctrl-L     <L>ine start from file",
+    \ "Ctrl-X, Ctrl-D     <D>ifinition of func from file",
+    \ "Ctrl-N             <N>ext item in completion mode",
+    \ "Ctrl-P             <P>revious item in completion mode",
+    \ "",
+    \ ]
+
