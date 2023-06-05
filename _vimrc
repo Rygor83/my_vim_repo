@@ -5,7 +5,7 @@
 "--------------------------------------------------------------
 " Get the defaults that most users want.
 "--------------------------------------------------------------
-source $VIMRUNTIME/defaults.vim
+" source $VIMRUNTIME/defaults.vim
 
 "--------------------------------------------------------------
 " General configuration
@@ -30,10 +30,12 @@ set incsearch                           " search as characters are entered
 set autoindent                          " When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on. Useful for READMEs, etc.
 set laststatus=2                        " Always display the status line, even if only one window is displayed
 set showmatch                           " highlight matching [{()}]
-
+set visualbell                          " Выключить звуковое сообщение про ошибках и включить мигание экрана
+set autochdir                           " automatically change the current directory to the directory of the current file
 set list "Show special signs: Tabs, End Of Line, Nonbreaking space, etc
 set listchars=eol:⏎,tab:␉·,trail:␠,nbsp:⎵
-
+set noexpandtab                         " Inset TAB as TAB and no space substitution
+set tildeop                             " make ~ as ~{motion}, so we can use {motion} with ~
 " Enable syntax highlighting
 if has('syntax')
   syntax on
@@ -42,7 +44,7 @@ endif
 "--------------------------------------------------------------
 " Временные файлы (своп, бэкап, история) и пути их хранения
 "--------------------------------------------------------------
-let $backup_folder=$vim . '\vimfiles\temp' " Environemtn variable starts with $, so you can assign it to :set param=$env_var
+let $backup_folder=$vim . '\vimfiles\temp' " Environment variable starts with $, so you can assign it to :set param=$env_var
 " Swap files folder: *.swp, *.swo
 set swapfile
 set directory=$backup_folder
@@ -64,11 +66,6 @@ if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
 
-"--------------------------------------------------------------
-" Выключить звуковое сообщение про ошибках и включить мигание 
-" экрана
-"--------------------------------------------------------------
-set visualbell
 
 "--------------------------------------------------------------
 " Позволяет переключать язык RU-EN только в VIM без смены в ОС.
@@ -81,25 +78,25 @@ set iminsert=0
 set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan
 " normal mode
-map <F2> <C-^> 
+noremap <F2> <C-^> 
 " insert mode
-imap <F2> <C-^> 
+inoremap <F2> <C-^> 
 " command line
-cmap <F2> <C-^>
+cnoremap <F2> <C-^>
 " terminal-job
-tmap <F2> <C-^>
+tnoremap <F2> <C-^>
 " insert & command line
-map! <F2> <C-^>
+noremap! <F2> <C-^>
 " insert, command-line, lang-arg
-lmap <F2> <C-^>
+lnoremap <F2> <C-^>
 " operator pending mode: when you type operator command, for example, d/c/f/t
-omap <F2> <C-^>
+onoremap <F2> <C-^>
 "--------------------------------------------------------------
 
 " ----- PLUGINS -----------------------------------------------
 if has('packages')
         packadd! gruvbox
-        " packadd! jedi-vim
+        " packadd! jedi-vim    " troubles with hotkeys
         packadd! markdown-preview
         packadd! NERDTree
         packadd! python-mode
@@ -112,9 +109,10 @@ if has('packages')
         packadd! vim-markdown
         packadd! vim-markdown-toc
         packadd! vim-polyglot
-        packadd! vim-snipmate
+        " packadd! vim-snipmate " troubles with hotkeys
         packadd! vim-table-mode
         packadd! vim-voom
+        " There are other plugins in 'pack/rygor/start/' folder
 
 else
         source $vim/vimfiles/pack/rygor/opt/vim-pathogen/autoload/pathogen.vim
@@ -178,9 +176,9 @@ endfunction
 " NERDTree 
 "--------------------------------------------------------------
 " toggle nerdtree display
-map <F3> :NERDTreeToggle<CR><CR>
+noremap <F3> :NERDTreeToggle<CR>
 " open nerdtree with the current file selected
-nmap ,t :NERDTreeFind<CR><CR>
+nnoremap ,t :NERDTreeFind<CR>
 " don;t show these file types
 set wildignore+=*.lnk,.*
 let NERDTreeRespectWildIgnore=1
@@ -189,11 +187,10 @@ let NERDTreeRespectWildIgnore=1
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-set autochdir         " automatically change the current directory to the directory of the current file
 "--------------------------------------------------------------
 
 "--- TagBar ---------------------------------------------------
-nmap <F9> :TagbarToggle<CR>
+nnoremap <F9> :TagbarToggle<CR>
 
 "--------------------------------------------------------------
 
@@ -201,9 +198,9 @@ nmap <F9> :TagbarToggle<CR>
 " Markdown Plugin with Preview: https://github.com/iamcco/markdown-preview.nvim
 " Назначение клавиш для работы с плагином
 "--------------------------------------------------------------
-nmap <C-s> <Plug>MarkdownPreview
-nmap <M-s> <Plug>MarkdownPreviewStop
-nmap <C-p> <Plug>MarkdownPreviewToggle
+nnoremap <C-s> <Plug>MarkdownPreview
+nnoremap <M-s> <Plug>MarkdownPreviewStop
+nnoremap <C-p> <Plug>MarkdownPreviewToggle
 "--------------------------------------------------------------
 
 " -------------  Airline config -------------------------------
@@ -223,17 +220,21 @@ nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 " General useful mappings
 "------------------------------------------------------------
 "Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy, which is the default
-map Y y$
+noremap Y y$
 "Map <C-L> (redraw screen) to also turn off search highlighting until the next search
 nnoremap <C-L> :nohl<CR><C-L>
 "Scroll up in INSERT mode & Scroll down in INSERT mod
 inoremap <C-E> <C-X><C-E>
 inoremap <C-Y> <C-X><C-Y>
 "Отобразить список тасков на F2
-map <F7> :TaskList<CR>
+noremap <F7> :TaskList<CR>
 "If you like the scrolling to go a bit smoother, you can use these mappings make sure the '<' flag is not in 'cpoptions'
-map <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
-map <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+noremap <C-U> <C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y><C-Y>
+noremap <C-D> <C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E><C-E>
+noremap <leader>ev :tabe $MYVIMRC<CR>
+noremap <leader>sv :source $MYVIMRC<CR>
+
+
 "------------------------------------------------------------
 
 "------------------------------------------------------------
@@ -271,8 +272,8 @@ set pythonthreedll=d:\\Programms\\Python311\\python311.dll
 set pyxversion=3
 " set pythonhome=d:\\Programms\\Python27
 " set pythondll=d:\Programms\\Python27\\python27.dll
-autocmd FileType python map <buffer> <F8> :w<CR>:py3f %<CR>
-autocmd FileType python imap <buffer> <F8> <esc>:w<CR>:py3f %<CR>
+autocmd FileType python noremap <buffer> <F8> :w<CR>:py3f %<CR>
+autocmd FileType python inoremap <buffer> <F8> <esc>:w<CR>:py3f %<CR>
 "------------------------------------------------------------
 
 
@@ -329,6 +330,7 @@ let g:jedi#popup_select_first = 0
 " VOOM use only python3
 let g:voom_python_versions = [3]
 autocmd FileType markdown nnoremap <buffer> <F4> :VoomToggle markdown <CR>
+autocmd FileType *.txt nnoremap <buffer> <F4> :VoomToggle vimoutliner <CR>
 " autocmd FileType python nnoremap <buffer> <F4> :VoomToogle python <CR>
 "-----------------------------------------------------
 
@@ -350,22 +352,24 @@ let g:abolish_save_file = '$vim\vimfiles\after\plugin\abolish.vim'
 "=====================================================
 let g:HelpMeItems = [
     \ "Fx shortcuts:",
-    \ "<F2>               Language switch RU-EN",
-    \ "<F3>               NerdTree",
-    \ "<F4>               Outliner",
-    \ "<F7>               Task List",
-    \ "<F8>               Execute python Vim Std",
-    \ "\\r                 Execute python Python-mode",
-    \ "<F9>               Tags Toggle",
-    \ "<F11>              Paste mode",
+    \ "<F2>                               Language switch RU-EN",
+    \ "<F3>                               NerdTree",
+    \ "<F4>                               Outliner",
+    \ "<F7>                               Task List",
+    \ "<F8>                               Execute python Vim Std",
+    \ "\\r                                 Execute python Python-mode",
+    \ "<F9>                               Tags Toggle",
+    \ "<F11>                              Paste mode",
     \ "",
-    \ "Completion:",
-    \ "Ctrl-X, Ctrl-I     <I>nsert words from file",
-    \ "Ctrl-X, Ctrl-F     <F>ile's path insert",
-    \ "Ctrl-X, Ctrl-L     <L>ine start from file",
-    \ "Ctrl-X, Ctrl-D     <D>ifinition of func from file",
-    \ "Ctrl-N             <N>ext item in completion mode",
-    \ "Ctrl-P             <P>revious item in completion mode",
+    \ "Completion in Insert mode:",
+    \ "Ctrl-X, Ctrl-I                     <I>nsert words from file",
+    \ "Ctrl-X, Ctrl-F                     <F>ile's path insert",
+    \ "Ctrl-X, Ctrl-L                     <L>ine start from file",
+    \ "Ctrl-X, Ctrl-D                     <D>ifinition of func from file",
+    \ "Ctrl-N                             <N>ext item in completion mode",
+    \ "Ctrl-P                             <P>revious item in completion mode",
     \ "",
+    \ "i_Ctrl-T or >> / i_Ctrl-D or <<    Indent / Unindent",
+    \ "Ctrl-Q, I, Ctrl-T/Ctrl-D           Indent / Unindent in Visual mode",
     \ ]
 
