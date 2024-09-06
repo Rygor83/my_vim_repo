@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-faq</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -404,7 +404,7 @@ It is based on <a class="reference external" href="http://ctags.sourceforge.net/
 <!-- TODO: https://github.com/universal-ctags/ctags/issues/2312
 #1421: feature: clean up stale tags when appending (`-a`)
 #2356: can't pre-process the macro but it works with Exuberant Ctags 5.8
-#2540: C/C++ï¼šconditional compilation like #ifdef will cause parse errror -->
+#2540: C/C++：conditional compilation like #ifdef will cause parse errror -->
 <div class="section" id="what-is-the-difference-between-universal-ctags-and-exuberant-ctags">
 <h2><a class="toc-backref" href="#toc-entry-2">What is the difference between Universal Ctags and Exuberant Ctags?</a></h2>
 <p>Universal Ctags is an unofficial fork of Exuberant Ctags.
@@ -492,7 +492,7 @@ use of the <tt class="docutils literal"><span class="pre">--recurse</span></tt> 
 command in the root of the directory hierarchy (thus running ctags only once):</p>
 <blockquote>
 <pre class="code sh literal-block">
-ctags -R
+ctags<span class="whitespace"> </span>-R
 </pre>
 </blockquote>
 <p>If you really insist on running ctags separately on each directory, you can
@@ -624,14 +624,14 @@ following lines:</p>
 <blockquote>
 <pre class="code sh literal-block">
 <span class="comment hashbang">#!/bin/sh
-</span><span class="name builtin">cd</span> <span class="name variable">$1</span>
-ctags *
+</span><span class="name builtin">cd</span><span class="whitespace"> </span><span class="name variable">$1</span><span class="whitespace">
+</span>ctags<span class="whitespace"> </span>*
 </pre>
 </blockquote>
 <p>Now execute the following command:</p>
 <blockquote>
 <pre class="code sh literal-block">
-find * -type d -exec dirtags <span class="operator">{}</span> <span class="literal string escape">\;</span>
+find<span class="whitespace"> </span>*<span class="whitespace"> </span>-type<span class="whitespace"> </span>d<span class="whitespace"> </span>-exec<span class="whitespace"> </span>dirtags<span class="whitespace"> </span><span class="operator">{}</span><span class="whitespace"> </span><span class="literal string escape">\;</span>
 </pre>
 </blockquote>
 <p>These tag files are trivial (and extremely quick) to rebuild while
@@ -647,8 +647,8 @@ source file:</p>
 <li><p class="first">Build the global tag file:</p>
 <blockquote>
 <pre class="code sh literal-block">
-<span class="name builtin">cd</span> ~/project
-ctags --file-scope<span class="operator">=</span>no -R
+<span class="name builtin">cd</span><span class="whitespace"> </span>~/project<span class="whitespace">
+</span>ctags<span class="whitespace"> </span>--file-scope<span class="operator">=</span>no<span class="whitespace"> </span>-R
 </pre>
 </blockquote>
 <p>thus constructing a tag file containing only non-static tags for all
@@ -669,10 +669,10 @@ this is done as follows:</p>
 <blockquote>
 <pre class="code sh literal-block">
 <span class="comment hashbang">#!/bin/sh
-</span><span class="name builtin">cd</span> <span class="name variable">$1</span>
-ctags *
-<span class="comment single"># Now append the non-static tags from descendent directories
-</span>find * -type d -prune -print <span class="punctuation">|</span> ctags -aR --file-scope<span class="operator">=</span>no -L-
+</span><span class="name builtin">cd</span><span class="whitespace"> </span><span class="name variable">$1</span><span class="whitespace">
+</span>ctags<span class="whitespace"> </span>*<span class="whitespace">
+</span><span class="comment single"># Now append the non-static tags from descendent directories
+</span>find<span class="whitespace"> </span>*<span class="whitespace"> </span>-type<span class="whitespace"> </span>d<span class="whitespace"> </span>-prune<span class="whitespace"> </span>-print<span class="whitespace"> </span><span class="punctuation">|</span><span class="whitespace"> </span>ctags<span class="whitespace"> </span>-aR<span class="whitespace"> </span>--file-scope<span class="operator">=</span>no<span class="whitespace"> </span>-L-
 </pre>
 </blockquote>
 <p>And replace the configuration of step 3 with this:</p>
@@ -691,8 +691,8 @@ build the global tag file with absolute path names. This can be
 accomplished by replacing step 2 with the following:</p>
 <blockquote>
 <pre class="code sh literal-block">
-<span class="name builtin">cd</span> ~/project
-ctags --file-scope<span class="operator">=</span>no -R <span class="literal string backtick">`</span><span class="name builtin">pwd</span><span class="literal string backtick">`</span>
+<span class="name builtin">cd</span><span class="whitespace"> </span>~/project<span class="whitespace">
+</span>ctags<span class="whitespace"> </span>--file-scope<span class="operator">=</span>no<span class="whitespace"> </span>-R<span class="whitespace"> </span><span class="literal string backtick">`</span><span class="name builtin">pwd</span><span class="literal string backtick">`</span>
 </pre>
 </blockquote>
 </div>
@@ -701,7 +701,7 @@ ctags --file-scope<span class="operator">=</span>no -R <span class="literal stri
 <!-- MEMO: from https://github.com/universal-ctags/ctags/issues/1837 -->
 <p>Yes, Unicode file names are supported on unix-like platforms (Linux, macOS,
 Cygwin, etc.).</p>
-<p>However, on Windows, you need to use Windows 10 version 1903 or later to use
+<p>However, on MS Windows, you need to use Windows 10 version 1903 or later to use
 Unicode file names. (This is an experimental feature, though.) On older versions
 on Windows, Universal Ctags only support file names represented in the current
 code page. If you still want to use Unicode file names on them, use Cygwin or
@@ -713,8 +713,8 @@ MSYS2 version of Universal Ctags as a workaround.</p>
 <p>zsh causes error on the following cases;</p>
 <blockquote>
 <pre class="code sh literal-block">
-ctags --extra<span class="operator">=</span>+* ...
-ctags --exclude<span class="operator">=</span>foo/* ...
+ctags<span class="whitespace"> </span>--extra<span class="operator">=</span>+*<span class="whitespace"> </span>...<span class="whitespace">
+</span>ctags<span class="whitespace"> </span>--exclude<span class="operator">=</span>foo/*<span class="whitespace"> </span>...
 </pre>
 </blockquote>
 <p>This is the 2nd most significant incompatibility <em>feature</em> of zsh.</p>
@@ -727,15 +727,15 @@ the command to abort; set <tt class="docutils literal">NO_NOMATCH</tt> for those
 patterns with backslash;</p>
 <blockquote>
 <pre class="code sh literal-block">
-ctags --extra<span class="operator">=</span>+<span class="literal string escape">\*</span> ...
-ctags --exclude<span class="operator">=</span>foo/<span class="literal string escape">\*</span> ...
+ctags<span class="whitespace"> </span>--extra<span class="operator">=</span>+<span class="literal string escape">\*</span><span class="whitespace"> </span>...<span class="whitespace">
+</span>ctags<span class="whitespace"> </span>--exclude<span class="operator">=</span>foo/<span class="literal string escape">\*</span><span class="whitespace"> </span>...
 </pre>
 </blockquote>
 <p>Or quote them;</p>
 <blockquote>
 <pre class="code sh literal-block">
-ctags <span class="literal string single">'--extra=+*'</span> ...
-ctags <span class="literal string single">'--exclude=foo/*'</span> ...
+ctags<span class="whitespace"> </span><span class="literal string single">'--extra=+*'</span><span class="whitespace"> </span>...<span class="whitespace">
+</span>ctags<span class="whitespace"> </span><span class="literal string single">'--exclude=foo/*'</span><span class="whitespace"> </span>...
 </pre>
 </blockquote>
 </div>

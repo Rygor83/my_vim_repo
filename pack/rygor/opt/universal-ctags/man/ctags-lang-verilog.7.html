@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-lang-verilog</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -416,9 +416,9 @@ Verilog parser supports IEEE Std 1364-2005 keywords.</p>
 <div class="section" id="supported-kinds">
 <h2>Supported Kinds</h2>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags --list-kinds-full<span class="operator">=</span>SystemVerilog
-<span class="generic prompt">#</span>LETTER NAME       ENABLED REFONLY NROLES MASTER DESCRIPTION
-<span class="generic output">A       assert     yes     no      0      NONE   assertions (assert, assume, cover, restrict)
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>--list-kinds-full<span class="operator">=</span>SystemVerilog<span class="whitespace">
+</span><span class="generic prompt">#</span>LETTER<span class="whitespace"> </span>NAME<span class="whitespace">       </span>ENABLED<span class="whitespace"> </span>REFONLY<span class="whitespace"> </span>NROLES<span class="whitespace"> </span>MASTER<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">A       assert     yes     no      0      NONE   assertions (assert, assume, cover, restrict)
 C       class      yes     no      0      NONE   classes
 E       enum       yes     no      0      NONE   enumerators
 H       checker    yes     no      0      NONE   checkers
@@ -435,7 +435,8 @@ S       struct     yes     no      0      NONE   structs and unions
 T       typedef    yes     no      0      NONE   type declarations
 V       covergroup yes     no      0      NONE   covergroups
 b       block      yes     no      0      NONE   blocks (begin, fork)
-c       constant   yes     no      0      NONE   constants (define, parameter, specparam, enum values)
+c       constant   yes     no      0      NONE   constants (parameter, specparam, enum values)
+d       define     yes     no      0      NONE   text macros
 e       event      yes     no      0      NONE   events
 f       function   yes     no      0      NONE   functions
 i       instance   yes     no      0      NONE   instances of module or interface
@@ -450,10 +451,11 @@ w       member     yes     no      0      NONE   struct and union members</span>
 </pre>
 <p>Note that <tt class="docutils literal">prototype</tt> (<tt class="docutils literal">Q</tt>) is disabled by default.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags --list-kinds-full<span class="operator">=</span>Verilog
-<span class="generic prompt">#</span>LETTER NAME     ENABLED REFONLY NROLES MASTER DESCRIPTION
-<span class="generic output">b       block    yes     no      0      NONE   blocks (begin, fork)
-c       constant yes     no      0      NONE   constants (define, parameter, specparam)
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>--list-kinds-full<span class="operator">=</span>Verilog<span class="whitespace">
+</span><span class="generic prompt">#</span>LETTER<span class="whitespace"> </span>NAME<span class="whitespace">     </span>ENABLED<span class="whitespace"> </span>REFONLY<span class="whitespace"> </span>NROLES<span class="whitespace"> </span>MASTER<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">b       block    yes     no      0      NONE   blocks (begin, fork)
+c       constant yes     no      0      NONE   constants (parameter, specparam)
+d       define   yes     no      0      NONE   text macros
 e       event    yes     no      0      NONE   events
 f       function yes     no      0      NONE   functions
 i       instance yes     no      0      NONE   instances of module
@@ -467,12 +469,12 @@ t       task     yes     no      0      NONE   tasks</span>
 <div class="section" id="supported-language-specific-fields">
 <h2>Supported Language Specific Fields</h2>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags --list-fields<span class="operator">=</span>Verilog
-<span class="generic prompt">#</span>LETTER NAME      ENABLED LANGUAGE JSTYPE FIXED DESCRIPTION
-<span class="generic output">-       parameter no      Verilog  --b    no    parameter whose value can be overridden.
-</span><span class="generic prompt">$ </span>ctags --list-fields<span class="operator">=</span>SystemVerilog
-<span class="generic prompt">#</span>LETTER NAME      ENABLED LANGUAGE      JSTYPE FIXED DESCRIPTION
-<span class="generic output">-       parameter no      SystemVerilog --b    no    parameter whose value can be overridden.</span>
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>--list-fields<span class="operator">=</span>Verilog<span class="whitespace">
+</span><span class="generic prompt">#</span>LETTER<span class="whitespace"> </span>NAME<span class="whitespace">      </span>ENABLED<span class="whitespace"> </span>LANGUAGE<span class="whitespace"> </span>JSTYPE<span class="whitespace"> </span>FIXED<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">-       parameter no      Verilog  --b    no    parameter whose value can be overridden.
+</span><span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>--list-fields<span class="operator">=</span>SystemVerilog<span class="whitespace">
+</span><span class="generic prompt">#</span>LETTER<span class="whitespace"> </span>NAME<span class="whitespace">      </span>ENABLED<span class="whitespace"> </span>LANGUAGE<span class="whitespace">      </span>JSTYPE<span class="whitespace"> </span>FIXED<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">-       parameter no      SystemVerilog --b    no    parameter whose value can be overridden.</span>
 </pre>
 <div class="section" id="parameter-field">
 <h3><tt class="docutils literal">parameter</tt> field</h3>
@@ -481,8 +483,8 @@ value can be overridden on an instantiated module, interface, or program.
 This is useful for a editor plugin or extension to enable auto-instantiation of modules with
 parameters which can be overridden.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags ... --fields-Verilog<span class="operator">=</span>+<span class="operator">{</span>parameter<span class="operator">}</span> ...
-<span class="generic prompt">$ </span>ctags ... --fields-SystemVerilog<span class="operator">=</span>+<span class="operator">{</span>parameter<span class="operator">}</span> ...
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>...<span class="whitespace"> </span>--fields-Verilog<span class="operator">=</span>+<span class="operator">{</span>parameter<span class="operator">}</span><span class="whitespace"> </span>...<span class="whitespace">
+</span><span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>...<span class="whitespace"> </span>--fields-SystemVerilog<span class="operator">=</span>+<span class="operator">{</span>parameter<span class="operator">}</span><span class="whitespace"> </span>...
 </pre>
 <p>On the following source code fields <tt class="docutils literal">parameter:</tt> are added on
 parameters <tt class="docutils literal">P*</tt>, not on ones <tt class="docutils literal">L*</tt>.  Note that <tt class="docutils literal">L4</tt> and <tt class="docutils literal">L6</tt> is declared by
@@ -518,8 +520,8 @@ because they cannot be overridden.</p>
 </span><span class="keyword">endmodule</span>
 </pre>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags -uo - --fields-SystemVerilog<span class="operator">=</span>+<span class="operator">{</span>parameter<span class="operator">}</span> input.sv
-<span class="generic output">L1      input.sv        /^parameter L1 = &quot;synonym for the localparam&quot;;$/;&quot;      c       parameter:
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-uo<span class="whitespace"> </span>-<span class="whitespace"> </span>--fields-SystemVerilog<span class="operator">=</span>+<span class="operator">{</span>parameter<span class="operator">}</span><span class="whitespace"> </span>input.sv<span class="whitespace">
+</span><span class="generic output">L1      input.sv        /^parameter L1 = &quot;synonym for the localparam&quot;;$/;&quot;      c       parameter:
 with_parameter_port_list        input.sv        /^module with_parameter_port_list #($/;&quot;        m
 P1      input.sv        /^      P1,$/;&quot; c       module:with_parameter_port_list parameter:
 L2      input.sv        /^      localparam L2 = P1+1,$/;&quot;       c       module:with_parameter_port_list
@@ -538,13 +540,13 @@ L7      input.sv        /^      localparam L7 = &quot;localparam&quot;;$/;&quot;
 <div class="section" id="supported-roles">
 <h2>Supported Roles</h2>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>./ctags --list-roles<span class="operator">=</span>SystemVerilog
-<span class="generic prompt">#</span>KIND<span class="operator">(</span>L/N<span class="operator">)</span> NAME ENABLED DESCRIPTION
-<span class="generic output">m/module   decl on      declaring instances
+<span class="generic prompt">$ </span>./ctags<span class="whitespace"> </span>--list-roles<span class="operator">=</span>SystemVerilog<span class="whitespace">
+</span><span class="generic prompt">#</span>KIND<span class="operator">(</span>L/N<span class="operator">)</span><span class="whitespace"> </span>NAME<span class="whitespace"> </span>ENABLED<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">m/module   decl on      declaring instances
 
-</span><span class="generic prompt">$ </span>./ctags --list-roles<span class="operator">=</span>Verilog
-<span class="generic prompt">#</span>KIND<span class="operator">(</span>L/N<span class="operator">)</span> NAME ENABLED DESCRIPTION
-<span class="generic output">m/module   decl on      declaring instances</span>
+</span><span class="generic prompt">$ </span>./ctags<span class="whitespace"> </span>--list-roles<span class="operator">=</span>Verilog<span class="whitespace">
+</span><span class="generic prompt">#</span>KIND<span class="operator">(</span>L/N<span class="operator">)</span><span class="whitespace"> </span>NAME<span class="whitespace"> </span>ENABLED<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">m/module   decl on      declaring instances</span>
 </pre>
 <p>The parser extracts names of modules used in instance declarations as
 reference tags. <tt class="docutils literal">decl</tt> is the role for the tags. See &quot;TAG ENTRIES&quot;
@@ -565,6 +567,15 @@ experimental; the names of the roles may be changed in the future.</p>
 <h1>KNOWN ISSUES</h1>
 <p>See <a class="reference external" href="https://github.com/universal-ctags/ctags/issues/2674">https://github.com/universal-ctags/ctags/issues/2674</a> for more information.</p>
 </div>
+<div class="section" id="versions">
+<h1>VERSIONS</h1>
+<div class="section" id="change-since-0-0">
+<h2>Change since &quot;0.0&quot;</h2>
+<ul class="simple">
+<li>New kind <tt class="docutils literal">define</tt></li>
+</ul>
+</div>
+</div>
 <div class="section" id="see-also">
 <h1>SEE ALSO</h1>
 <ul>
@@ -575,7 +586,7 @@ experimental; the names of the roles may be changed in the future.</p>
 <li><p class="first">Language Reference Manuals (LRM)</p>
 <blockquote>
 <ul class="simple">
-<li>IEEE Standard for SystemVerilog â€” Unified Hardware Design, Specification, and
+<li>IEEE Standard for SystemVerilog — Unified Hardware Design, Specification, and
 Verification Language, IEEE Std 1800-2017,
 <a class="reference external" href="https://ieeexplore.ieee.org/document/8299595">https://ieeexplore.ieee.org/document/8299595</a></li>
 <li>IEEE Standard for Verilog Hardware Description Language, IEEE Std 1364-2005,

@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-json-output</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -390,11 +390,11 @@ ctags executable is built with <tt class="docutils literal">libjansson</tt>.  JS
 standard output by default.</p>
 </div>
 <div class="section" id="format">
-<h1>Format</h1>
+<h1>FORMAT</h1>
 <p>Each JSON line represents a tag.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags --extras<span class="operator">=</span>+p --output-format<span class="operator">=</span>json --fields<span class="operator">=</span>-s input.py
-<span class="generic output">{&quot;_type&quot;: &quot;ptag&quot;, &quot;name&quot;: &quot;JSON_OUTPUT_VERSION&quot;, &quot;path&quot;: &quot;1.0&quot;, &quot;pattern&quot;: &quot;in development&quot;}
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>--extras<span class="operator">=</span>+p<span class="whitespace"> </span>--output-format<span class="operator">=</span>json<span class="whitespace"> </span>--fields<span class="operator">=</span>-s<span class="whitespace"> </span>input.py<span class="whitespace">
+</span><span class="generic output">{&quot;_type&quot;: &quot;ptag&quot;, &quot;name&quot;: &quot;JSON_OUTPUT_VERSION&quot;, &quot;path&quot;: &quot;1.0&quot;, &quot;pattern&quot;: &quot;in development&quot;}
 {&quot;_type&quot;: &quot;ptag&quot;, &quot;name&quot;: &quot;TAG_FILE_SORTED&quot;, &quot;path&quot;: &quot;1&quot;, &quot;pattern&quot;: &quot;0=unsorted, 1=sorted, 2=foldcase&quot;}
 ...
 {&quot;_type&quot;: &quot;tag&quot;, &quot;name&quot;: &quot;Klass&quot;, &quot;path&quot;: &quot;/tmp/input.py&quot;, &quot;pattern&quot;: &quot;/^class Klass:$/&quot;, &quot;language&quot;: &quot;Python&quot;, &quot;kind&quot;: &quot;class&quot;}
@@ -422,15 +422,15 @@ They are combined in the default tags file format.</li>
 </ul>
 </div>
 <div class="section" id="data-type-used-in-a-field">
-<h1>Data type used in a field</h1>
+<h1>DATA TYPE USED IN A FIELD</h1>
 <p>Values for the most of all keys are represented in JSON string type.
 However, some of them are represented in string, integer, and/or boolean type.</p>
 <p>&quot;<tt class="docutils literal"><span class="pre">--output-format=json</span> <span class="pre">--list-fields</span></tt>&quot; options show What kind of data type
 used in a field of JSON.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags --output-format<span class="operator">=</span>json --list-fields
-<span class="generic prompt">#</span>LETTER NAME           ENABLED LANGUAGE         JSTYPE FIXED DESCRIPTION
-<span class="generic output">F       input          yes     NONE             s--    no    input file
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>--output-format<span class="operator">=</span>json<span class="whitespace"> </span>--list-fields<span class="whitespace">
+</span><span class="generic prompt">#</span>LETTER<span class="whitespace"> </span>NAME<span class="whitespace">           </span>ENABLED<span class="whitespace"> </span>LANGUAGE<span class="whitespace">         </span>JSTYPE<span class="whitespace"> </span>FIXED<span class="whitespace"> </span>DESCRIPTION<span class="whitespace">
+</span><span class="generic output">F       input          yes     NONE             s--    no    input file
 ...
 P       pattern        yes     NONE             s-b    no    pattern
 ...

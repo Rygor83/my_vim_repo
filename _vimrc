@@ -99,7 +99,7 @@ if has('packages')
         " packadd! jedi-vim    " troubles with hotkeys
         packadd! markdown-preview
         packadd! NERDTree
-        packadd! python-mode
+        " packadd! python-mode
         packadd! tagbar
         packadd! tasklist
         packadd! tlib_vim

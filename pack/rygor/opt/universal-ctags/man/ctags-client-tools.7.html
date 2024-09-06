@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-client-tools</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -454,7 +454,8 @@ option.</p>
 <p>pseudo-tags don't have a notation using one-letter flags.</p>
 <p class="last">If a name is preceded by either the '+' or '-' characters, that
 tags's effect has been added or removed. Otherwise the names replace
-any current settings. All entries are included if '*' is given.</p>
+any current settings. All entries are included if '*' is given.
+All entries are removed if nothing ('') is given.</p>
 </dd>
 <dt><tt class="docutils literal"><span class="pre">--fields=+E</span></tt> (or <tt class="docutils literal"><span class="pre">--fields=+{extras}</span></tt>)</dt>
 <dd><p class="first">Attach &quot;extras:pseudo&quot; field to pseudo-tags.</p>
@@ -559,21 +560,42 @@ kinds of C language are enabled from the output.</p>
 <dt><tt class="docutils literal">TAG_OUTPUT_EXCMD</tt> (new in Universal Ctags)</dt>
 <dd>Indicates the specified type of EX command with <tt class="docutils literal"><span class="pre">--excmd</span></tt> option.</dd>
 <dt><tt class="docutils literal">TAG_OUTPUT_FILESEP</tt> (new in Universal Ctags)</dt>
-<dd>TBW</dd>
+<dd><p class="first">Indicates filename separators (&quot;slash&quot; or &quot;backslsh&quot;) used in input fields.</p>
+<p>Universal Ctags running on MS Windows replaces backslashes with slashes
+when emitting input fields by default. This pseudo tag is for
+notifying this replacement to client tools.</p>
+<p class="last">See also the description for <tt class="docutils literal"><span class="pre">--use-slash-as-filename-separator</span></tt>
+option in ctags(1).</p>
+</dd>
 <dt><tt class="docutils literal">TAG_OUTPUT_MODE</tt> (new in Universal Ctags)</dt>
-<dd>TBW</dd>
+<dd><p class="first">Indicates whether using Universal Ctags extended escape sequences (&quot;u-ctags&quot;) or not (&quot;e-ctags&quot;).</p>
+<p>To reduce illegal characters like &lt;Tab&gt; in tags files, Universal
+Ctags extends the escape sequences originally used in Exuberant
+Ctags, and applies the escaping rules to more fields.</p>
+<p>See tags(5) about the escaping rules.</p>
+<p><tt class="docutils literal"><span class="pre">--output-format</span></tt> option is for choosing the output mode within
+the tags output format. See ctags(1) about the option.</p>
+<p>In &quot;e-ctags&quot; mode, for not violating the tags file format
+described in tags(5), Universal Ctags skips emitting tag entries
+including illegal characters like &lt;Tab&gt;.</p>
+<p class="last">In input fields ({tagfile} in tags(5)), we have one more
+condition for applying the escaping rules: <tt class="docutils literal">\</tt> characters
+are not used as filename separators. UNIX-like systems use <tt class="docutils literal">/</tt>
+for the purpose. On MS Windows, Universal Ctags converts <tt class="docutils literal">\</tt>
+in filenames to <tt class="docutils literal">/</tt> by default. So, generally this condition is
+satisfied. The condition is not satisfied only when you specify
+<tt class="docutils literal"><span class="pre">--use-slash-as-filename-separator=no</span></tt> on MS Windows.</p>
+</dd>
 <dt><tt class="docutils literal">TAG_OUTPUT_VERSION</tt> (new in Universal Ctags 6.0)</dt>
 <dd><p class="first">Indicates the language-common interface version of the output:</p>
-<pre class="last literal-block">
-  !_TAG_OUTPUT_VERSION  {current}.{age} /.../
-
-The public interface includes common fields, common extras,
-pseudo tags.
-
-The maintainer of Universal Ctags may update the numbers,
-&quot;{current}&quot; and &quot;{age}&quot; in the same manner as explained
-in ``TAG_PARSER_VERSION``.
+<pre class="literal-block">
+!_TAG_OUTPUT_VERSION  {current}.{age} /.../
 </pre>
+<p>The public interface includes common fields, common extras,
+pseudo tags.</p>
+<p class="last">The maintainer of Universal Ctags may update the numbers,
+&quot;{current}&quot; and &quot;{age}&quot; in the same manner as explained
+in <tt class="docutils literal">TAG_PARSER_VERSION</tt>.</p>
 </dd>
 <dt><tt class="docutils literal">TAG_PARSER_VERSION</tt> (new in Universal Ctags 6.0)</dt>
 <dd><p class="first">Indicates the interface version of the parser:</p>
@@ -592,7 +614,7 @@ release, increment &quot;{current}&quot;.</li>
 <li>If they have been removed since last release, set &quot;{age}&quot; to 0.</li>
 </ul>
 <p>This concept is baesd on the versioning in <strong>libtool</strong>
-(<a class="reference external" href="https://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning">7.2 Libtoolâ€™s versioning system</a>.)
+(<a class="reference external" href="https://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning">7.2 Libtool’s versioning system</a>.)
 In Universal Ctags, we simplified the concept with removing
 &quot;revision&quot; in the versioning in libtool.</p>
 <p class="last">Manual pages for languages may document changes that increase
@@ -637,27 +659,103 @@ even if the role itself is enabled.</p>
 </div>
 <div class="section" id="redundant-kinds">
 <h1>REDUNDANT-KINDS</h1>
-<p>TBW</p>
+<p>TBW (Write about --fields=+kKzZ)</p>
 </div>
 <div class="section" id="multiple-languages-for-an-input-file">
 <h1>MULTIPLE-LANGUAGES FOR AN INPUT FILE</h1>
 <p>Universal ctags can run multiple parsers.
-That means a parser, which supports multiple parsers, may output tags for
-different languages.  <tt class="docutils literal">language</tt>/<tt class="docutils literal">l</tt> field can be used to show the language
+That means a parser, which supports multiple parsers (<strong>guest parsers</strong> or <strong>sub-parsers</strong>), may output tags for
+different languages.</p>
+<div class="section" id="guest-parsers">
+<h2>Guest parsers</h2>
+<p>A parser can run guest pursers on the areas in a source file.</p>
+<p>Consider the following text as a source file (&quot;input.html&quot;):</p>
+<pre class="code html literal-block">
+<span class="punctuation">&lt;</span><span class="name tag">html</span><span class="punctuation">&gt;&lt;</span><span class="name tag">head</span><span class="punctuation">&gt;</span>
+        <span class="punctuation">&lt;</span><span class="name tag">script</span><span class="punctuation">&gt;</span><span class="keyword declaration">class</span><span class="whitespace"> </span><span class="name other">MyObject</span><span class="whitespace"> </span><span class="punctuation">{}&lt;/</span><span class="name tag">script</span><span class="punctuation">&gt;</span>
+        <span class="punctuation">&lt;</span><span class="name tag">style</span> <span class="name attribute">type</span><span class="operator">=</span><span class="literal string">&quot;text/css&quot;</span><span class="punctuation">&gt;</span><span class="name tag">h1</span><span class="punctuation">.</span><span class="name class">heading</span><span class="whitespace"> </span><span class="punctuation">{</span><span class="whitespace"> </span><span class="keyword">color</span><span class="punctuation">:</span><span class="whitespace"> </span><span class="keyword constant">red</span><span class="punctuation">;</span><span class="whitespace"> </span><span class="punctuation">}&lt;/</span><span class="name tag">style</span><span class="punctuation">&gt;</span>
+<span class="punctuation">&lt;/</span><span class="name tag">htad</span><span class="punctuation">&gt;</span>
+<span class="punctuation">&lt;</span><span class="name tag">h1</span> <span class="name attribute">class</span><span class="operator">=</span><span class="literal string">'heading'</span><span class="punctuation">&gt;</span>title<span class="punctuation">&lt;/</span><span class="name tag">h1</span><span class="punctuation">&gt;</span>
+<span class="punctuation">&lt;/</span><span class="name tag">html</span><span class="punctuation">&gt;</span>
+</pre>
+<p>If a user doesn't specify any extras, Universal ctags emits:</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>input.html<span class="whitespace">
+</span><span class="generic output">title   input.html      /^&lt;h1 class='heading'&gt;title&lt;\/h1&gt;$/;&quot;   h</span>
+</pre>
+<p>These is no issue here.
+<tt class="docutils literal">running guest pursers</tt> extra is disabled by default.</p>
+<p>If a user enables the <tt class="docutils literal">running guest parsers</tt> extra with specifying
+<tt class="docutils literal"><span class="pre">--extras=+{guest}</span></tt> or <tt class="docutils literal"><span class="pre">--extras=+g</span></tt>, Universal ctags emits:</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>--extras<span class="operator">=</span><span class="literal string single">'{guest}'</span><span class="whitespace"> </span>input.html<span class="whitespace">
+</span><span class="generic output">MyObject        input.html      /class MyObject {}/;&quot;   c
+h1.heading      input.html      /h1.heading { color: red; }/;&quot;  c
+title   input.html      /^&lt;h1 class='heading'&gt;title&lt;\/h1&gt;$/;&quot;   h</span>
+</pre>
+<p>Universal ctags extracts the language objects for CSS and JavaScript; the HTML
+parser runs JavaScript parser on the area &quot;<tt class="docutils literal"><span class="pre">&lt;script&gt;...&lt;/script&gt;</span></tt>&quot; area
+and CSS parser on the area &quot;<tt class="docutils literal">&lt;style <span class="pre">...&gt;</span> <span class="pre">...&lt;/style&gt;</span></tt>&quot; area.</p>
+<p>If a client tool assumes that ctags runs one parser for an input file,
+the tool may tell &quot;MyObject is a class of HTML&quot; and/or &quot;h1.heading is
+a class of HTML&quot; to its users. <tt class="docutils literal">c</tt> is too few information to
+tell what is &quot;MyObject&quot; and what is &quot;h1.heading&quot; correctly. The
+client tool needs more information.</p>
+<p><tt class="docutils literal">language</tt>/<tt class="docutils literal">l</tt> field can be used to show the language
 for each tag.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>cat /tmp/foo.html
-<span class="generic output">&lt;html&gt;
-&lt;script&gt;var x = 1&lt;/script&gt;
-&lt;h1&gt;title&lt;/h1&gt;
-&lt;/html&gt;
-</span><span class="generic prompt">$ </span>./ctags -o - --extras<span class="operator">=</span>+g /tmp/foo.html
-<span class="generic output">title   /tmp/foo.html   /^  &lt;h1&gt;title&lt;\/h1&gt;$/;&quot; h
-x       /tmp/foo.html   /var x = 1/;&quot;   v
-</span><span class="generic prompt">$ </span>./ctags -o - --extras<span class="operator">=</span>+g --fields<span class="operator">=</span>+l /tmp/foo.html
-<span class="generic output">title   /tmp/foo.html   /^  &lt;h1&gt;title&lt;\/h1&gt;$/;&quot; h       language:HTML
-x       /tmp/foo.html   /var x = 1/;&quot;   v       language:JavaScript</span>
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>--extras<span class="operator">=</span><span class="literal string single">'{guest}'</span><span class="whitespace"> </span>--fields<span class="operator">=</span>+<span class="literal string single">'{language}'</span><span class="whitespace"> </span>input.html<span class="whitespace">
+</span><span class="generic output">MyObject        input.html      /class MyObject {}/;&quot;   c       language:JavaScript
+h1.heading      input.html      /h1.heading { color: red; }/;&quot;  c       language:CSS
+title   input.html      /^&lt;h1 class='heading'&gt;title&lt;\/h1&gt;$/;&quot;   h       language:HTML</span>
 </pre>
+<p>For some class tools, the <tt class="docutils literal">language:</tt> field provides enough information.
+Universal ctags can emits more self-descriptive tag file.</p>
+<p>Enabling <tt class="docutils literal">K</tt> field with <tt class="docutils literal"><span class="pre">--fields=+K</span></tt> option, Universal ctags uses
+long-names instead of single-letter to represent kind fields:</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>--extras<span class="operator">=</span><span class="literal string single">'{guest}'</span><span class="whitespace"> </span>--fields<span class="operator">=</span>+<span class="literal string single">'{language}K'</span><span class="whitespace"> </span>input.html<span class="whitespace">
+</span><span class="generic output">MyObject        /tmp/input.html /class MyObject {}/;&quot;   class   language:JavaScript
+h1.heading      /tmp/input.html /h1.heading { color: red; }/;&quot;  class   language:CSS
+title   /tmp/input.html /^&lt;h1 class='heading'&gt;title&lt;\/h1&gt;$/;&quot;   heading1        language:HTML</span>
+</pre>
+<p>The long-name representation makes tag files larger.
+If you want to keep a tag file small, you can make your tool utilize pseudo-tags
+instead of enabling <tt class="docutils literal">K</tt> field. Universal ctags emits the following line at the
+beginning of a tags file by default:</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$ </span>cat<span class="whitespace"> </span>./tags<span class="whitespace">
+</span><span class="generic output">...
+!_TAG_KIND_DESCRIPTION!CSS      c,class /classes/
+...
+!_TAG_KIND_DESCRIPTION!HTML     c,class /classes/
+!_TAG_KIND_DESCRIPTION!HTML     h,heading1      /H1 headings/
+...
+!_TAG_KIND_DESCRIPTION!JavaScript       c,class /classes/
+...</span>
+</pre>
+<p>From the second field of the output, a tool can know the mapping
+between a single-letter for a kind and a long-name for the kind.</p>
+<p>Universal ctags emits pseudo-tags to tag files by default. However, if
+you make ctags emit to standard output with <tt class="docutils literal"><span class="pre">-o</span> -</tt> or <tt class="docutils literal"><span class="pre">-f</span> -</tt>
+option, ctags doesn't print pseudo-tags.  <tt class="docutils literal">pseudo</tt>/<tt class="docutils literal">p</tt> extra
+forces emitting.</p>
+<pre class="code console literal-block">
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>--extras<span class="operator">=</span><span class="literal string single">'{guest}{pseudo}'</span><span class="whitespace"> </span>--fields<span class="operator">=</span>+<span class="literal string single">'{language}'</span><span class="whitespace"> </span>input.html<span class="whitespace">
+</span><span class="generic output">...
+!_TAG_KIND_DESCRIPTION!CSS      c,class /classes/
+...
+!_TAG_KIND_DESCRIPTION!HTML     c,class /classes/
+!_TAG_KIND_DESCRIPTION!HTML     h,heading1      /H1 headings/
+...
+!_TAG_KIND_DESCRIPTION!JavaScript       c,class /classes/
+...</span>
+</pre>
+</div>
+<div class="section" id="sub-parsers">
+<h2>Sub-parsers</h2>
+<p>TBW</p>
+</div>
 </div>
 <div class="section" id="utilizing-readtags">
 <h1>UTILIZING READTAGS</h1>
@@ -694,7 +792,7 @@ filter&quot; to see which operators take string arguments.</p>
 translate the list into a string that can be directly used. For example, in
 EmacsLisp:</p>
 <div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">ctags-client-tools.7.rst</tt>, line 363)</p>
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">ctags-client-tools.7.rst</tt>, line 487)</p>
 <p>Cannot analyze code. No Pygments lexer found for &quot;EmacsLisp&quot;.</p>
 <pre class="literal-block">
 .. code-block:: EmacsLisp
@@ -866,7 +964,7 @@ nearest occurrence from the line&quot; gives good result on both schemes.</p>
 <div class="section" id="see-also">
 <h1>SEE ALSO</h1>
 <p>ctags(1), ctags-lang-python(7), ctags-incompatibilities(7), tags(5), ctags-json-output(5), readtags(1),
-<cite>7.2 Libtoolâ€™s versioning system &lt;https://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning&gt;</cite></p>
+<cite>7.2 Libtool’s versioning system &lt;https://www.gnu.org/software/libtool/manual/libtool.html#Libtool-versioning&gt;</cite></p>
 </div>
 </div>
 </body>

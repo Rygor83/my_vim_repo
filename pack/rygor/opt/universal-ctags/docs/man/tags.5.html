@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>tags &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=e259d695"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -46,7 +42,7 @@
           <div class="body" role="main">
             
   <section id="tags">
-<span id="tags-5"></span><h1>tags<a class="headerlink" href="#tags" title="Permalink to this heading">¶</a></h1>
+<span id="tags-5"></span><h1>tags<a class="headerlink" href="#tags" title="Link to this heading">¶</a></h1>
 <p>Vi tags file format extended in ctags projects</p>
 <dl class="field-list simple">
 <dt class="field-odd">Version<span class="colon">:</span></dt>
@@ -60,7 +56,7 @@
 </dd>
 </dl>
 <section id="description">
-<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>The contents of next section is a copy of FORMAT file in Exuberant
 Ctags source code in its subversion repository at sourceforge.net.</p>
 <p>Exceptions introduced in Universal Ctags are explained inline with
@@ -69,14 +65,14 @@ Ctags are explained inline with “COMMENT” marker.</p>
 </section>
 <hr class="docutils" />
 <section id="proposal-for-extended-vi-tags-file-format">
-<h2>Proposal for extended Vi tags file format<a class="headerlink" href="#proposal-for-extended-vi-tags-file-format" title="Permalink to this heading">¶</a></h2>
+<h2>Proposal for extended Vi tags file format<a class="headerlink" href="#proposal-for-extended-vi-tags-file-format" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line">Version: 0.06 DRAFT</div>
 <div class="line">Date: 1998 Feb 8</div>
 <div class="line">Author: Bram Moolenaar &lt;Bram at vim.org&gt; and Darren Hiebert &lt;dhiebert at users.sourceforge.net&gt;</div>
 </div>
 <section id="introduction">
-<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h3>
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h3>
 <p>The file format for the “tags” file, as used by Vi and many of its
 descendants, has limited capabilities.</p>
 <p>This additional functionality is desired:</p>
@@ -96,7 +92,7 @@ add this later, without breaking programs that don’t support it.</p></li>
 </ol>
 </section>
 <section id="from-proposal-to-standard">
-<h3>From proposal to standard<a class="headerlink" href="#from-proposal-to-standard" title="Permalink to this heading">¶</a></h3>
+<h3>From proposal to standard<a class="headerlink" href="#from-proposal-to-standard" title="Link to this heading">¶</a></h3>
 <p>To make this proposal into a standard for tags files, it needs to be supported
 by most people working on versions of Vi, ctags, etc..  Currently this
 standard is supported by:</p>
@@ -127,7 +123,7 @@ standard is supported by:</p>
 </dl>
 </section>
 <section id="backwards-compatibility">
-<h3>Backwards compatibility<a class="headerlink" href="#backwards-compatibility" title="Permalink to this heading">¶</a></h3>
+<h3>Backwards compatibility<a class="headerlink" href="#backwards-compatibility" title="Link to this heading">¶</a></h3>
 <p>A tags file that is generated in the new format should still be usable by Vi.
 This makes it possible to distribute tags files that are usable by all
 versions and descendants of Vi.</p>
@@ -178,7 +174,7 @@ or a search command is recognized.  I hope Posix can be adjusted.  Nvi suffers
 from this.</p>
 </section>
 <section id="security">
-<h3>Security<a class="headerlink" href="#security" title="Permalink to this heading">¶</a></h3>
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
 <p>Vi allows the use of any Ex command in a tags file.  This has the potential of
 a trojan horse security leak.</p>
 <p>The proposal is to allow only Ex commands that position the cursor in a single
@@ -224,7 +220,7 @@ semi-colon and double-quote).  This is used below.</p>
 position the cursor in a certain column.</p>
 </section>
 <section id="goals">
-<h3>Goals<a class="headerlink" href="#goals" title="Permalink to this heading">¶</a></h3>
+<h3>Goals<a class="headerlink" href="#goals" title="Link to this heading">¶</a></h3>
 <p>Now the usage of the comment text has to be defined.  The following is aimed
 at:</p>
 <ol class="arabic simple">
@@ -251,7 +247,7 @@ several Mbytes.</p></li>
 </ol>
 </section>
 <section id="proposal">
-<h3>Proposal<a class="headerlink" href="#proposal" title="Permalink to this heading">¶</a></h3>
+<h3>Proposal<a class="headerlink" href="#proposal" title="Link to this heading">¶</a></h3>
 <p>Use a comment after the {tagaddress} field.  The format would be:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">tagname</span><span class="p">}</span><span class="o">&lt;</span><span class="n">Tab</span><span class="o">&gt;</span><span class="p">{</span><span class="n">tagfile</span><span class="p">}</span><span class="o">&lt;</span><span class="n">Tab</span><span class="o">&gt;</span><span class="p">{</span><span class="n">tagaddress</span><span class="p">}[;</span><span class="s2">&quot;&lt;Tab&gt;</span><span class="si">{tagfield}</span><span class="s2">..]</span>
 </pre></div>
@@ -315,7 +311,8 @@ converted to <code class="docutils literal notranslate"><span class="pre">\x</sp
 not handled in the above “value” rules.</p></li>
 </ul>
 <p>EXCEPTION: Universal Ctags allows all these escape sequences in {tagname}
-also.</p>
+and {tagfile} also. However, about {tagfile}, a condition must be
+satisfied. See “<a class="reference internal" href="#exceptions-in-universal-ctags">Exceptions in Universal Ctags</a>” about the condition.</p>
 <ul class="simple">
 <li><p>The leading space (0x20) and <code class="docutils literal notranslate"><span class="pre">!</span></code> (0x21) in {tagname} are converted
 to <code class="docutils literal notranslate"><span class="pre">\x</span></code> prefixed hexadecimal number (<code class="docutils literal notranslate"><span class="pre">\x20</span></code> and <code class="docutils literal notranslate"><span class="pre">\x21</span></code>) if the
@@ -472,6 +469,10 @@ command can be used:</p>
 </pre></div>
 </div>
 <p>(replace ^I with a real &lt;Tab&gt;).</p>
+<p>COMMENT: Universal Ctags running on MS Windows converts the <code class="docutils literal notranslate"><span class="pre">\</span></code> separator
+to <code class="docutils literal notranslate"><span class="pre">/</span></code> by defualt, and allows the escape sequences even in {tagfile}
+if a condition is satisfied. See “<a class="reference internal" href="#exceptions-in-universal-ctags">Exceptions in Universal Ctags</a>” about
+the condition.</p>
 <p>TAG FILE INFORMATION:</p>
 <p>Pseudo-tag lines can be used to encode information into the tag file regarding
 details about its content (e.g. have the tags been sorted?, are the optional
@@ -517,17 +518,24 @@ section also applies to pseudo-tags.</p>
 </section>
 <hr class="docutils" />
 <section id="exceptions-in-universal-ctags">
-<h2>Exceptions in Universal Ctags<a class="headerlink" href="#exceptions-in-universal-ctags" title="Permalink to this heading">¶</a></h2>
+<h2>Exceptions in Universal Ctags<a class="headerlink" href="#exceptions-in-universal-ctags" title="Link to this heading">¶</a></h2>
 <p>Universal Ctags supports this proposal with some
 exceptions.</p>
 <section id="exceptions">
-<h3>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this heading">¶</a></h3>
+<h3>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h3>
 <ol class="arabic simple">
 <li><p>{tagname} in tags file generated by Universal Ctags may contain
 spaces and several escape sequences. Parsers for documents like Tex and
 reStructuredText, or liberal languages such as JavaScript need these
 exceptions. See {tagname} of Proposal section for more detail about the
 conversion.</p></li>
+<li><p>{tagfile} in tags file generated by Universal Ctags may contain
+spaces and several escape sequences if <code class="docutils literal notranslate"><span class="pre">\</span></code> characters are not used as
+filename separators. UNIX-like systems use <code class="docutils literal notranslate"><span class="pre">/</span></code> for the
+purpose. On MS Windows, Universal Ctags converts <code class="docutils literal notranslate"><span class="pre">\</span></code> in filenames
+to <code class="docutils literal notranslate"><span class="pre">/</span></code> by default. So, generally this condition is satisfied.
+Universal Ctags emits several psuedo tags telling whether the condition
+is satisfied or not. See <a class="reference internal" href="ctags-client-tools.7.html#ctags-client-tools-7"><span class="std std-ref">ctags-client-tools(7)</span></a> about these psuedo tags.</p></li>
 <li><p>“name” part of {tagfield} in a tag generated by Universal Ctags may
 contain numeric characters, but the first character of the “name”
 must be alphabetic.</p>
@@ -535,9 +543,9 @@ must be alphabetic.</p>
 </ol>
 </section>
 <section id="compatible-output-and-weakness">
-<span id="compat-output"></span><h3>Compatible output and weakness<a class="headerlink" href="#compatible-output-and-weakness" title="Permalink to this heading">¶</a></h3>
+<span id="compat-output"></span><h3>Compatible output and weakness<a class="headerlink" href="#compatible-output-and-weakness" title="Link to this heading">¶</a></h3>
 <p>Default behavior (<code class="docutils literal notranslate"><span class="pre">--output-format=u-ctags</span></code> option) has the
-exceptions.  In other hand, with <code class="docutils literal notranslate"><span class="pre">--output-format=e-ctags</span></code> option
+exceptions.  On the other hand, with <code class="docutils literal notranslate"><span class="pre">--output-format=e-ctags</span></code> option
 ctags has no exception; Universal Ctags command may use the same file
 format as Exuberant Ctags. However, <code class="docutils literal notranslate"><span class="pre">--output-format=e-ctags</span></code> throws
 away a tag entry which name includes a space or a tab
@@ -546,7 +554,7 @@ used when ctags generating tags file.</p>
 </section>
 </section>
 <section id="see-also">
-<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <p><a class="reference internal" href="ctags.1.html#ctags-1"><span class="std std-ref">ctags(1)</span></a>, <a class="reference internal" href="ctags-client-tools.7.html#ctags-client-tools-7"><span class="std std-ref">ctags-client-tools(7)</span></a>, <a class="reference internal" href="ctags-incompatibilities.7.html#ctags-incompatibilities-7"><span class="std std-ref">ctags-incompatibilities(7)</span></a>, <a class="reference internal" href="readtags.1.html#readtags-1"><span class="std std-ref">readtags(1)</span></a></p>
 </section>
 </section>
@@ -625,9 +633,9 @@ used when ctags generating tags file.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

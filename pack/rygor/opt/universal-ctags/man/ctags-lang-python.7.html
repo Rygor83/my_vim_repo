@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-lang-python</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -752,9 +752,9 @@ attached to &quot;Z4&quot; and &quot;scope:module:X4&quot; attached to &quot;Y4&
 <h2>Examples</h2>
 <p>&quot;input.py&quot;</p>
 <pre class="code Python literal-block">
-<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">Callable</span>
-<span class="name builtin">id</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="name">var0</span><span class="punctuation">:</span> <span class="name">var0</span>
-<span class="name">id_t</span><span class="punctuation">:</span> <span class="name">Callable</span><span class="punctuation">[[</span><span class="name builtin">int</span><span class="punctuation">],</span> <span class="name builtin">int</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="name">var1</span><span class="punctuation">:</span> <span class="name">var1</span>
+<span class="keyword namespace">from</span> <span class="name namespace">typing</span> <span class="keyword namespace">import</span> <span class="name">Callable</span><span class="whitespace">
+</span><span class="name builtin">id</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="name">var0</span><span class="punctuation">:</span> <span class="name">var0</span><span class="whitespace">
+</span><span class="name">id_t</span><span class="punctuation">:</span> <span class="name">Callable</span><span class="punctuation">[[</span><span class="name builtin">int</span><span class="punctuation">],</span> <span class="name builtin">int</span><span class="punctuation">]</span> <span class="operator">=</span> <span class="keyword">lambda</span> <span class="name">var1</span><span class="punctuation">:</span> <span class="name">var1</span>
 </pre>
 <p>&quot;output.tags&quot;
 with &quot;--options=NONE -o - --sort=no --fields=+KS --fields-Python=+{nameref} --extras=+{anonymous} input.py&quot;</p>

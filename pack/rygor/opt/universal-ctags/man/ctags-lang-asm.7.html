@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-lang-asm</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -407,7 +407,7 @@ for mitigating the gaps of syntax.</p>
 <p>Use <tt class="docutils literal"><span class="pre">--param-Asm.{parameter}={value}</span></tt> option for adjusting the value
 for a parameter. For example:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags ... --param-Asm.runCPreProcessor<span class="operator">=</span><span class="name builtin">false</span> ...
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>...<span class="whitespace"> </span>--param-Asm.runCPreProcessor<span class="operator">=</span><span class="name builtin">false</span><span class="whitespace"> </span>...
 </pre>
 <p>This command line sets <tt class="docutils literal">false</tt> to <tt class="docutils literal">runCPreProcessor</tt> parameter.</p>
 <p><tt class="docutils literal"><span class="pre">--list-params=Asm</span></tt> lists available parameters available in the
@@ -420,7 +420,7 @@ source code before the Asm parser does.</p>
 <ul class="simple">
 <li>lines started from <cite>//</cite> are stripped as comments,</li>
 <li>areas surrounded by the pair of <cite>/*</cite> and <cite>*/</cite> are
-started as comments, and</li>
+stripped as comments, and</li>
 <li>macros defined with <cite>#define</cite> are extracted as tags.</li>
 </ul>
 <p>Set <tt class="docutils literal">runCPreProcessor</tt> to <tt class="docutils literal">false</tt> for disabling the CPreProcessor
@@ -436,7 +436,7 @@ act as comment starters only if they are at the beginning
 of lines.</p>
 <p>The next example if for assembler input using <cite>!</cite> and <cite>&gt;</cite> as the comment starter:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags ... --param-Asm.commentCharsAtBOL<span class="operator">=</span><span class="literal string single">'!&gt;'</span> ...
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>...<span class="whitespace"> </span>--param-Asm.commentCharsAtBOL<span class="operator">=</span><span class="literal string single">'!&gt;'</span><span class="whitespace"> </span>...
 </pre>
 </div>
 <div class="section" id="commentcharsinmol-adjusting-line-comment-starter-in-the-middle-of-line">
@@ -459,7 +459,7 @@ for adding more line separators.</p>
 The next example for adjusting the Asm parser to the extra line
 separator:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags ... --param-Asm.extraLinesepChars<span class="operator">=</span><span class="literal string single">';'</span> ...
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>...<span class="whitespace"> </span>--param-Asm.extraLinesepChars<span class="operator">=</span><span class="literal string single">';'</span><span class="whitespace"> </span>...
 </pre>
 </div>
 </div>
@@ -507,6 +507,7 @@ with &quot;--options=NONE -o - --param-Asm.useCPreProcessor=1 --param-CPreProces
 
         ENTRY   input.S /^#define ENTRY(/;&quot;     d       file:   signature:(LABEL)       macrodef:.global LABEL ;LABEL
         main    input.S /^ENTRY(main):$/;&quot;      l
+        main    input.S /^ENTRY(main):$/;&quot;      s
 
 </pre>
 </div>
@@ -520,9 +521,26 @@ current input file. The parser doesn't consider <cite>#undef</cite> when
 expanding.</p>
 </div>
 </div>
+<div class="section" id="versions">
+<h1>VERSIONS</h1>
+<div class="section" id="change-since-0-0">
+<h2>Change since &quot;0.0&quot;</h2>
+<ul>
+<li><p class="first">The kind <tt class="docutils literal">section</tt> is deleted.
+The section specified with <cite>.section</cite> directive as tagged as
+<tt class="docutils literal">placement</tt> role of <tt class="docutils literal">section</tt> kind of <tt class="docutils literal">Asm</tt> language.
+These kind and role are deleted.</p>
+<p>Instead, it is tagged as <tt class="docutils literal">destination</tt> role of <tt class="docutils literal">inputSection</tt>
+kind of <tt class="docutils literal">LdScript</tt> language.</p>
+</li>
+</ul>
+</div>
+</div>
 <div class="section" id="see-also">
 <h1>SEE ALSO</h1>
-<p>ctags(1), Info entries for GNU assembler</p>
+<p>ctags(1),
+ctags-lang-asm(7),
+Info entries for GNU assembler</p>
 </div>
 </div>
 </body>

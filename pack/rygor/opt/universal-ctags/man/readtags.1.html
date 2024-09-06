@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>readtags</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">1</td>
@@ -439,6 +439,17 @@ tags files, which is much faster then on unsorted tags files.</p>
 <p>By default, the output of readtags contains only the name, input and pattern
 field. The Output can be tweaked using these options:</p>
 <dl class="docutils">
+<dt><tt class="docutils literal"><span class="pre">-A</span></tt>, <tt class="docutils literal"><span class="pre">--absolute-input</span></tt></dt>
+<dd>Do the same as <tt class="docutils literal"><span class="pre">-C</span></tt> option but use only absolute path form.</dd>
+<dt><tt class="docutils literal"><span class="pre">-C</span></tt>, <tt class="docutils literal"><span class="pre">--canonicalize-input</span></tt></dt>
+<dd><p class="first">Resolve '..' and '.' in input fields of regular tags.
+This produces a unique representation of the input path.
+This option works only with tags files having <tt class="docutils literal">!_TAG_PROC_CWD</tt> pseudo
+tag.</p>
+<p class="last">NOTE: The current implementation accepts only <tt class="docutils literal">!_TAG_PROC_CWD</tt>
+starting with <tt class="docutils literal">/</tt>; a Windows directory name starting with a
+drive letter like <tt class="docutils literal"><span class="pre">C:\Somewhere</span></tt> is not acceptable.</p>
+</dd>
 <dt><tt class="docutils literal"><span class="pre">-d</span></tt>, <tt class="docutils literal"><span class="pre">--debug</span></tt></dt>
 <dd>Turn on debugging output.</dd>
 <dt><tt class="docutils literal"><span class="pre">-E</span></tt>, <tt class="docutils literal"><span class="pre">--escape-output</span></tt></dt>
@@ -447,6 +458,8 @@ field. The Output can be tweaked using these options:</p>
 <dd>Include extension fields in output.</dd>
 <dt><tt class="docutils literal"><span class="pre">-n</span></tt>, <tt class="docutils literal"><span class="pre">--line-number</span></tt></dt>
 <dd>Also include the line number field when <tt class="docutils literal"><span class="pre">-e</span></tt> option is give.</dd>
+<dt><tt class="docutils literal"><span class="pre">-P</span></tt>, <tt class="docutils literal"><span class="pre">--with-pseudo-tags</span></tt></dt>
+<dd>List pseudo tags as if <tt class="docutils literal"><span class="pre">-D</span></tt> option is specified but continues processing without exiting.</dd>
 </dl>
 <p>About the <tt class="docutils literal"><span class="pre">-E</span></tt> option: certain characters are escaped in a tags file, to make
 it machine-readable. e.g., ensuring no tabs character appear in fields other
@@ -454,6 +467,12 @@ than the pattern field. By default, readtags translates them to make it
 human-readable, but when utilizing readtags output in a script or a client
 tool, <tt class="docutils literal"><span class="pre">-E</span></tt> option should be used. See ctags-client-tools(7) for more
 discussion on this.</p>
+<p>About printing input fields ({tagfile} in tags(5)) with <tt class="docutils literal"><span class="pre">-E</span></tt> option: readtags
+always prints the input field literally (as it is in the tags file), and when
+ctags writes the tags file, the escaping rules are applied only when
+<tt class="docutils literal">TAG_OUTPUT_MODE</tt> pseudo tag has &quot;u-ctags&quot; and <tt class="docutils literal">TAG_OUTPUT_FILESEP</tt> has
+&quot;slash&quot; as values for their input fields, as explained in
+ctags-client-tools(7).</p>
 </div>
 <div class="section" id="filtering-sorting-and-formatting">
 <h2>Filtering, Sorting, and Formatting</h2>
@@ -474,22 +493,22 @@ are performed using:</p>
 <ul>
 <li><p class="first">List all tags in &quot;/path/to/tags&quot;:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -t /path/to/tags -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-t<span class="whitespace"> </span>/path/to/tags<span class="whitespace"> </span>-l
 </pre>
 </li>
 <li><p class="first">List all tags in &quot;tags&quot; that start with &quot;mymethod&quot;:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -p - mymethod
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-p<span class="whitespace"> </span>-<span class="whitespace"> </span>mymethod
 </pre>
 </li>
 <li><p class="first">List all tags matching &quot;mymethod&quot;, case insensitively:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -i - mymethod
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-i<span class="whitespace"> </span>-<span class="whitespace"> </span>mymethod
 </pre>
 </li>
 <li><p class="first">List all tags start with &quot;myvar&quot;, and printing all fields (i.e., the whole line):</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -p -ne - myvar
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-p<span class="whitespace"> </span>-ne<span class="whitespace"> </span>-<span class="whitespace"> </span>myvar
 </pre>
 </li>
 </ul>
@@ -520,7 +539,7 @@ For example:</p>
 <ul>
 <li><p class="first">List all tags start with &quot;myfunc&quot; in Python code files:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -p -Q <span class="literal string single">'(eq? $language &quot;Python&quot;)'</span> - myfunc
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-p<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(eq? $language &quot;Python&quot;)'</span><span class="whitespace"> </span>-<span class="whitespace"> </span>myfunc
 </pre>
 </li>
 </ul>
@@ -530,7 +549,7 @@ matching:</p>
 <li><p class="first">List all tags containing &quot;my&quot;, case insensitively:</p>
 <blockquote>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(substr? (downcase $name) &quot;my&quot;)'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(substr? (downcase $name) &quot;my&quot;)'</span><span class="whitespace"> </span>-l
 </pre>
 </blockquote>
 </li>
@@ -541,9 +560,9 @@ missing field is #f, so we could deal with missing fields:</p>
 <li><p class="first">List all tags containing &quot;impl&quot; in Python code files, but allow the
 <tt class="docutils literal">language:</tt> field to be missing:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(and (substr? $name &quot;impl&quot;)\
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(and (substr? $name &quot;impl&quot;)\
                     (or (not $language)\
-                        (eq? $language &quot;Python&quot;)))'</span> -l
+                        (eq? $language &quot;Python&quot;)))'</span><span class="whitespace"> </span>-l
 </pre>
 </li>
 </ul>
@@ -553,7 +572,7 @@ as PATTERN.</p>
 <ul>
 <li><p class="first">List all tags inherits from the class &quot;A&quot;:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(#/(^|,) ?A(,|$)/ $inherits)'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(#/(^|,) ?A(,|$)/ $inherits)'</span><span class="whitespace"> </span>-l
 </pre>
 </li>
 </ul>
@@ -564,7 +583,7 @@ space after each comma or there's not.</p>
 <ul>
 <li><p class="first">List all tags inherits from the class &quot;A&quot; or &quot;a&quot;:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(#/(^|,) ?A(,|$)/i $inherits)'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(#/(^|,) ?A(,|$)/i $inherits)'</span><span class="whitespace"> </span>-l
 </pre>
 </li>
 </ul>
@@ -589,7 +608,7 @@ strings. To avoid this problem:</p>
 <ul>
 <li><p class="first">Safely list all tags inherits from the class &quot;A&quot;:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(and $inherits (#/(^|,) ?A(,|$)/ $inherits))'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(and $inherits (#/(^|,) ?A(,|$)/ $inherits))'</span><span class="whitespace"> </span>-l
 </pre>
 </li>
 </ul>
@@ -601,7 +620,7 @@ not reference tags. Here's how to do it:</p>
 <ul>
 <li><p class="first">List all tags but the reference tags:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(or (not $extras) (#/(^|,) ?reference(,|$)/ $extras))'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(or (not $extras) (#/(^|,) ?reference(,|$)/ $extras))'</span><span class="whitespace"> </span>-l
 </pre>
 </li>
 </ul>
@@ -612,18 +631,18 @@ a source file as far as the source file is enough short.</p>
 <ul>
 <li><p class="first">List all the large (&gt; 100 lines) functions in a file:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags -o - --fields<span class="operator">=</span>+neKz input.c <span class="literal string escape">\
-</span>  <span class="punctuation">|</span> ./readtags -t - -en <span class="literal string escape">\
-</span>               -Q <span class="literal string single">'(and (eq? $kind &quot;function&quot;) $end $line (&gt; (- $end $line) 100))'</span> <span class="literal string escape">\
-</span>               -l
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>--fields<span class="operator">=</span>+neKz<span class="whitespace"> </span>input.c<span class="whitespace"> </span><span class="literal string escape">\
+</span><span class="whitespace">  </span><span class="punctuation">|</span><span class="whitespace"> </span>./readtags<span class="whitespace"> </span>-t<span class="whitespace"> </span>-<span class="whitespace"> </span>-en<span class="whitespace"> </span><span class="literal string escape">\
+</span><span class="whitespace">               </span>-Q<span class="whitespace"> </span><span class="literal string single">'(and (eq? $kind &quot;function&quot;) $end $line (&gt; (- $end $line) 100))'</span><span class="whitespace"> </span><span class="literal string escape">\
+</span><span class="whitespace">               </span>-l
 </pre>
 </li>
 <li><p class="first">List all the tags including line 80 in a file:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags -o - --fields<span class="operator">=</span>+neKz input.c <span class="literal string escape">\
-</span>  <span class="punctuation">|</span> readtags -t - -ne <span class="literal string escape">\
-</span>             -Q <span class="error">'</span><span class="operator">(</span>and <span class="name variable">$line</span>
-<span class="generic output">                      (or (eq? $line 80)
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>--fields<span class="operator">=</span>+neKz<span class="whitespace"> </span>input.c<span class="whitespace"> </span><span class="literal string escape">\
+</span><span class="whitespace">  </span><span class="punctuation">|</span><span class="whitespace"> </span>readtags<span class="whitespace"> </span>-t<span class="whitespace"> </span>-<span class="whitespace"> </span>-ne<span class="whitespace"> </span><span class="literal string escape">\
+</span><span class="whitespace">             </span>-Q<span class="whitespace"> </span><span class="error">'</span><span class="operator">(</span>and<span class="whitespace"> </span><span class="name variable">$line</span><span class="whitespace">
+</span><span class="generic output">                      (or (eq? $line 80)
                           (and $end (&lt; $line 80) (&lt; 80 $end))))' \
     -l</span>
 </pre>
@@ -648,7 +667,7 @@ produces 0. Strings are compared using the <tt class="docutils literal">strcmp</
 <p>For example, sort by names, and make those shorter or alphabetically smaller
 ones appear before the others:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -S <span class="literal string single">'(&lt;&gt; $name &amp;name)'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-S<span class="whitespace"> </span><span class="literal string single">'(&lt;&gt; $name &amp;name)'</span><span class="whitespace"> </span>-l
 </pre>
 <p>This reads &quot;If the tag name in the $-entry is smaller, it goes before the
 &amp;-entry&quot;.</p>
@@ -656,7 +675,7 @@ ones appear before the others:</p>
 -1 or 1. For example, sort by input file names, then line numbers if in the
 same file:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -S <span class="literal string single">'(&lt;or&gt; (&lt;&gt; $input &amp;input) (&lt;&gt; $line &amp;line))'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-S<span class="whitespace"> </span><span class="literal string single">'(&lt;or&gt; (&lt;&gt; $input &amp;input) (&lt;&gt; $line &amp;line))'</span><span class="whitespace"> </span>-l
 </pre>
 <p>The <tt class="docutils literal">*-</tt> operator is used to flip the compare result. i.e., <tt class="docutils literal">(*- (&lt;&gt; a b))</tt>
 is the same as <tt class="docutils literal">(&lt;&gt; b a)</tt>.</p>
@@ -700,7 +719,7 @@ the operator. e.g., the following expression makes a list contains
 <p>To show some examples, the following tags file (<tt class="docutils literal">output.tags</tt>) is assumed
 as input for readtags:</p>
 <div class="system-message">
-<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">readtags.1.rst</tt>, line 370)</p>
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">readtags.1.rst</tt>, line 393)</p>
 <p>Cannot analyze code. No Pygments lexer found for &quot;tags&quot;.</p>
 <pre class="literal-block">
 .. code-block:: tags
@@ -715,25 +734,25 @@ as input for readtags:</p>
 </div>
 <p>An exapmle for printing only function names:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -t output.tags -Q <span class="literal string single">'(eq? $kind &quot;function&quot;)'</span> -F <span class="literal string single">'(list $name #t)'</span> -l
-<span class="generic output">bar
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-t<span class="whitespace"> </span>output.tags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(eq? $kind &quot;function&quot;)'</span><span class="whitespace"> </span>-F<span class="whitespace"> </span><span class="literal string single">'(list $name #t)'</span><span class="whitespace"> </span>-l<span class="whitespace">
+</span><span class="generic output">bar
 foo
 main</span>
 </pre>
 <p>Doing the same only with a formatter expression:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -t output.tags -F <span class="literal string single">'(if (eq? $kind &quot;function&quot;) (list $name #t) #f)'</span> -l
-<span class="generic output">bar
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-t<span class="whitespace"> </span>output.tags<span class="whitespace"> </span>-F<span class="whitespace"> </span><span class="literal string single">'(if (eq? $kind &quot;function&quot;) (list $name #t) #f)'</span><span class="whitespace"> </span>-l<span class="whitespace">
+</span><span class="generic output">bar
 foo
 main</span>
 </pre>
 <p>Generating declarations for the functions:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -t output.tags -F <span class="literal string escape">\
-</span>  <span class="error">'</span><span class="operator">(</span><span class="keyword">if</span> <span class="operator">(</span>eq? <span class="name variable">$kind</span> <span class="literal string double">&quot;function&quot;</span><span class="operator">)</span>
-<span class="generic output">      (list (if $file &quot;static &quot; #f) $typeref-name &quot; &quot; $name $signature &quot;;&quot; #t)
-</span><span class="generic prompt">     #</span>f<span class="operator">)</span><span class="error">'</span> -l
-<span class="generic output">static void bar(char ** argv,int * r);
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-t<span class="whitespace"> </span>output.tags<span class="whitespace"> </span>-F<span class="whitespace"> </span><span class="literal string escape">\
+</span><span class="whitespace">  </span><span class="error">'</span><span class="operator">(</span><span class="keyword">if</span><span class="whitespace"> </span><span class="operator">(</span>eq?<span class="whitespace"> </span><span class="name variable">$kind</span><span class="whitespace"> </span><span class="literal string double">&quot;function&quot;</span><span class="operator">)</span><span class="whitespace">
+</span><span class="generic output">      (list (if $file &quot;static &quot; #f) $typeref-name &quot; &quot; $name $signature &quot;;&quot; #t)
+</span><span class="generic prompt">     #</span>f<span class="operator">)</span><span class="error">'</span><span class="whitespace"> </span>-l<span class="whitespace">
+</span><span class="generic output">static void bar(char ** argv,int * r);
 static int foo(int v);
 int main(int argc,char ** argv);</span>
 </pre>
@@ -743,7 +762,7 @@ int main(int argc,char ** argv);</span>
 <p>The <cite>print</cite> operator can be used to print the value of an expression. For
 example:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(print $name)'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(print $name)'</span><span class="whitespace"> </span>-l
 </pre>
 <p>prints the name of each tag entry before it. Since the return value of
 <tt class="docutils literal">print</tt> is not #f, all the tag entries are printed. We could control this
@@ -751,7 +770,7 @@ using the <tt class="docutils literal">begin</tt> or <tt class="docutils literal
 last argument, and <tt class="docutils literal">begin0</tt> returns the value of its first argument. For
 example:</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>readtags -Q <span class="literal string single">'(begin0 #f (print (prefix? &quot;ctags&quot; &quot;ct&quot;)))'</span> -l
+<span class="generic prompt">$ </span>readtags<span class="whitespace"> </span>-Q<span class="whitespace"> </span><span class="literal string single">'(begin0 #f (print (prefix? &quot;ctags&quot; &quot;ct&quot;)))'</span><span class="whitespace"> </span>-l
 </pre>
 <p>prints a bunch of &quot;#t&quot; (depending on how many lines are in the tags file), and
 the actual tag entries are not printed.</p>

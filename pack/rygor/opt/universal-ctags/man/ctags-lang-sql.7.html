@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-lang-sql</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -392,9 +392,9 @@ functions written in the procedural languages if the <tt class="docutils literal
 is enabled.</p>
 <p>The SQL parser looks for a token coming after <tt class="docutils literal">LANGUAGE</tt> keyword in
 the source code to choose a proper guest parser.</p>
-<pre class="code SQL literal-block">
-<span class="punctuation">...</span><span class="whitespace"> </span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plpythonu</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace"> </span><span class="literal string single">'... user-defined function '</span><span class="whitespace"> </span><span class="punctuation">...</span><span class="whitespace">
-</span><span class="punctuation">...</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace"> </span><span class="error">$$</span><span class="whitespace"> </span><span class="keyword">user</span><span class="operator">-</span><span class="keyword">defined</span><span class="whitespace"> </span><span class="keyword">function</span><span class="whitespace"> </span><span class="error">$$</span><span class="whitespace"> </span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plv8</span><span class="whitespace"> </span><span class="punctuation">...</span>
+<pre class="code psql literal-block">
+<span class="literal number float">...</span><span class="whitespace"> </span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plpythonu</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace"> </span><span class="literal string single">'... user-defined function '</span><span class="whitespace"> </span><span class="literal number float">...</span><span class="whitespace">
+</span><span class="literal number float">...</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace"> </span><span class="literal string">$</span><span class="literal string delimiter"></span><span class="literal string">$ user-defined function $</span><span class="literal string delimiter"></span><span class="literal string">$</span><span class="whitespace"> </span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plv8</span><span class="whitespace"> </span><span class="literal number float">...</span>
 </pre>
 <p>In the above examples, <tt class="docutils literal">plpythonu</tt> and <tt class="docutils literal">plv8</tt> are the names of
 procedural languages. The SQL parser trims <cite>pl</cite> at the start and <cite>u</cite>
@@ -410,16 +410,16 @@ guest parser for <tt class="docutils literal">plv8</tt>.</p>
 <h1>EXAMPLES</h1>
 <p>tagging code including a user-defined function in a string literal <a class="citation-reference" href="#gh3006" id="citation-reference-2">[GH3006]</a>:</p>
 <p>&quot;input.sql&quot;</p>
-<pre class="code SQL literal-block">
+<pre class="code psql literal-block">
 <span class="keyword">CREATE</span><span class="whitespace"> </span><span class="keyword">OR</span><span class="whitespace"> </span><span class="keyword">REPLACE</span><span class="whitespace"> </span><span class="keyword">FUNCTION</span><span class="whitespace"> </span><span class="name">fun1</span><span class="punctuation">()</span><span class="whitespace"> </span><span class="keyword">RETURNS</span><span class="whitespace"> </span><span class="name builtin">VARCHAR</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace"> </span><span class="literal string single">'
 DECLARE
         test1_var1 VARCHAR(64) := $$ABC$$;
-        test1_var2 VARCHAR(64) := $xyz$XYZ$xyz$;
+</span><span class="generic output">        test1_var2 VARCHAR(64) := $xyz$XYZ$xyz$;
         test1_var3     INTEGER := 1;
 BEGIN
         RETURN  TO_CHAR(test_var3, ''000'') || test1_var1 || test1_var2;
 END;
-'</span><span class="whitespace"> </span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plpgsql</span><span class="punctuation">;</span>
+' LANGUAGE plpgsql;</span>
 </pre>
 <p>&quot;output.tags&quot;
 with &quot;--options=NONE -o - --sort=no --extras=+{guest} input.sql&quot;</p>
@@ -438,16 +438,16 @@ with &quot;--options=NONE -o - --sort=no --extras=+{guest} input.sql&quot;</p>
 </div>
 <p>tagging code including a user-defined function in a dollar quote <a class="citation-reference" href="#gh3006" id="citation-reference-3">[GH3006]</a>:</p>
 <p>&quot;input.sql&quot;</p>
-<pre class="code SQL literal-block">
+<pre class="code psql literal-block">
 <span class="keyword">CREATE</span><span class="whitespace"> </span><span class="keyword">OR</span><span class="whitespace"> </span><span class="keyword">REPLACE</span><span class="whitespace"> </span><span class="keyword">FUNCTION</span><span class="whitespace"> </span><span class="name">fun2</span><span class="punctuation">()</span><span class="whitespace"> </span><span class="keyword">RETURNS</span><span class="whitespace"> </span><span class="name builtin">VARCHAR</span><span class="whitespace"> </span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plpgsql</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace"> </span><span class="error">$$</span><span class="whitespace">
 </span><span class="keyword">DECLARE</span><span class="whitespace">
-        </span><span class="name">test2_var1</span><span class="whitespace"> </span><span class="name builtin">VARCHAR</span><span class="punctuation">(</span><span class="literal number integer">64</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="punctuation">:</span><span class="operator">=</span><span class="whitespace"> </span><span class="literal string single">'ABC2'</span><span class="punctuation">;</span><span class="whitespace">
-        </span><span class="name">test2_var2</span><span class="whitespace"> </span><span class="name builtin">VARCHAR</span><span class="punctuation">(</span><span class="literal number integer">64</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="punctuation">:</span><span class="operator">=</span><span class="whitespace"> </span><span class="literal string single">'XYZ2'</span><span class="punctuation">;</span><span class="whitespace">
-        </span><span class="name">test2_var3</span><span class="whitespace">        </span><span class="name builtin">INTEGER</span><span class="whitespace"> </span><span class="punctuation">:</span><span class="operator">=</span><span class="whitespace"> </span><span class="literal number integer">2</span><span class="punctuation">;</span><span class="whitespace">
-</span><span class="keyword">BEGIN</span><span class="whitespace">
-        </span><span class="keyword">RETURN</span><span class="whitespace">  </span><span class="name">TO_CHAR</span><span class="punctuation">(</span><span class="name">test2_var3</span><span class="punctuation">,</span><span class="whitespace"> </span><span class="literal string single">'000'</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="operator">||</span><span class="whitespace"> </span><span class="name">test2_var1</span><span class="whitespace"> </span><span class="operator">||</span><span class="whitespace"> </span><span class="name">test2_var2</span><span class="punctuation">;</span><span class="whitespace">
-</span><span class="keyword">END</span><span class="punctuation">;</span><span class="whitespace">
-</span><span class="error">$$</span><span class="punctuation">;</span>
+        </span><span class="name">test2_var1</span><span class="whitespace"> </span><span class="name builtin">VARCHAR</span><span class="punctuation">(</span><span class="literal number float">64</span><span class="punctuation">)</span><span class="whitespace"> </span><span class="punctuation">:</span><span class="operator">=</span><span class="whitespace"> </span><span class="literal string single">'ABC2'</span><span class="punctuation">;</span><span class="whitespace">
+</span><span class="generic output">        test2_var2 VARCHAR(64) := 'XYZ2';
+        test2_var3        INTEGER := 2;
+BEGIN
+        RETURN  TO_CHAR(test2_var3, '000') || test2_var1 || test2_var2;
+END;
+$$;</span>
 </pre>
 <p>&quot;output.tags&quot;
 with &quot;--options=NONE -o - --sort=no --extras=+{guest} input.sql&quot;</p>
@@ -465,16 +465,16 @@ with &quot;--options=NONE -o - --sort=no --extras=+{guest} input.sql&quot;</p>
 </pre>
 </div>
 <p>tagging code including a user-defined written in JavaScript:</p>
-<pre class="code SQL literal-block">
+<pre class="code psql literal-block">
 <span class="comment single">-- Derived from https://github.com/plv8/plv8/blob/r3.0alpha/sql/plv8.sql
 </span><span class="keyword">CREATE</span><span class="whitespace"> </span><span class="keyword">FUNCTION</span><span class="whitespace"> </span><span class="name">test</span><span class="punctuation">(</span><span class="name">keys</span><span class="whitespace"> </span><span class="name builtin">text</span><span class="punctuation">[],</span><span class="whitespace"> </span><span class="name">vals</span><span class="whitespace"> </span><span class="name builtin">text</span><span class="punctuation">[])</span><span class="whitespace"> </span><span class="keyword">RETURNS</span><span class="whitespace"> </span><span class="name builtin">text</span><span class="whitespace"> </span><span class="keyword">AS</span><span class="whitespace">
 </span><span class="error">$$</span><span class="whitespace">
-        </span><span class="name">var</span><span class="whitespace"> </span><span class="name">o</span><span class="whitespace"> </span><span class="operator">=</span><span class="whitespace"> </span><span class="error">{}</span><span class="punctuation">;</span><span class="whitespace">
-        </span><span class="keyword">for</span><span class="whitespace"> </span><span class="punctuation">(</span><span class="name">var</span><span class="whitespace"> </span><span class="name">i</span><span class="whitespace"> </span><span class="operator">=</span><span class="whitespace"> </span><span class="literal number integer">0</span><span class="punctuation">;</span><span class="whitespace"> </span><span class="name">i</span><span class="whitespace"> </span><span class="operator">&lt;</span><span class="whitespace"> </span><span class="name">keys</span><span class="punctuation">.</span><span class="keyword">length</span><span class="punctuation">;</span><span class="whitespace"> </span><span class="name">i</span><span class="operator">++</span><span class="punctuation">)</span><span class="whitespace">
-                </span><span class="name">o</span><span class="punctuation">[</span><span class="name">keys</span><span class="punctuation">[</span><span class="name">i</span><span class="punctuation">]]</span><span class="whitespace"> </span><span class="operator">=</span><span class="whitespace"> </span><span class="name">vals</span><span class="punctuation">[</span><span class="name">i</span><span class="punctuation">];</span><span class="whitespace">
-        </span><span class="keyword">return</span><span class="whitespace"> </span><span class="name">JSON</span><span class="punctuation">.</span><span class="name">stringify</span><span class="punctuation">(</span><span class="name">o</span><span class="punctuation">);</span><span class="whitespace">
-</span><span class="error">$$</span><span class="whitespace">
-</span><span class="keyword">LANGUAGE</span><span class="whitespace"> </span><span class="name">plv8</span><span class="whitespace"> </span><span class="keyword">IMMUTABLE</span><span class="whitespace"> </span><span class="keyword">STRICT</span><span class="punctuation">;</span>
+        </span><span class="name">var</span><span class="whitespace"> </span><span class="name">o</span><span class="whitespace"> </span><span class="operator">=</span><span class="whitespace"> </span><span class="punctuation">{};</span><span class="whitespace">
+</span><span class="generic output">        for (var i = 0; i &lt; keys.length; i++)
+                o[keys[i]] = vals[i];
+        return JSON.stringify(o);
+$$
+LANGUAGE plv8 IMMUTABLE STRICT;</span>
 </pre>
 <p>&quot;output.tags&quot;
 with &quot;--options=NONE -o - --sort=no --extras=+{guest} input.sql&quot;</p>

@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Universal Ctags Hacking Guide &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=e259d695"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -41,7 +37,7 @@
           <div class="body" role="main">
             
   <section id="universal-ctags-hacking-guide">
-<h1>Universal Ctags Hacking Guide<a class="headerlink" href="#universal-ctags-hacking-guide" title="Permalink to this heading">¶</a></h1>
+<h1>Universal Ctags Hacking Guide<a class="headerlink" href="#universal-ctags-hacking-guide" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">Version<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Draft</p>
@@ -111,17 +107,29 @@ features.</p>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-incompatibilities.7.html">ctags-incompatibilities(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-faq.7.html">ctags-faq(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-asm.7.html">ctags-lang-asm(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-autoit.7.html">ctags-lang-autoit(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-automake.7.html">ctags-lang-automake(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c.7.html">ctags-lang-c(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html">ctags-lang-c++(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-cuda.7.html">ctags-lang-cuda(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-elm.7.html">ctags-lang-elm(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-fortran.7.html">ctags-lang-fortran(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-gdscript.7.html">ctags-lang-gdscript(7)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html">ctags-lang-inko(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html">ctags-lang-i18nrubygem(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-iPythonCell.7.html">ctags-lang-iPythonCell(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html">ctags-lang-inko(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-javascript.7.html">ctags-lang-javascript(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-julia.7.html">ctags-lang-julia(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-kconfig.7.html">ctags-lang-kconfig(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-ldscript.7.html">ctags-lang-ldscript(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-markdown.7.html">ctags-lang-markdown(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-python.7.html">ctags-lang-python(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-r.7.html">ctags-lang-r(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-rmarkdown.7.html">ctags-lang-rmarkdown(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-sql.7.html">ctags-lang-sql(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-systemtap.7.html">ctags-lang-systemtap(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-tcl.7.html">ctags-lang-tcl(7)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-terraform.7.html">ctags-lang-terraform(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-verilog.7.html">ctags-lang-verilog(7)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/readtags.1.html">readtags(1)</a></li>
 </ul>
@@ -135,6 +143,7 @@ features.</p>
 <li class="toctree-l2"><a class="reference internal" href="parser-puppetManifest.html">puppetManifest parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parser-python.html">The new Python parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parser-tcl.html">The new Tcl parser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="parser-v.html">The V parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parser-vim.html">The Vim parser</a></li>
 <li class="toctree-l2"><a class="reference internal" href="parser-xslt.html">XSLT parser</a></li>
 </ul>
@@ -162,12 +171,9 @@ features.</p>
 <li class="toctree-l2"><a class="reference internal" href="interactive-mode.html#sandbox-submode">sandbox submode</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="news.html">Other changes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="news.html#new-and-extended-options">New and extended options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="news.html#incompatible-changes-in-command-line">Incompatible changes in command line</a></li>
-<li class="toctree-l2"><a class="reference internal" href="news.html#changes-imported-from-exuberant-ctags">Changes imported from Exuberant Ctags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="news.html#parser-related-changes">Parser related changes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="news.html#readtags">Readtags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="news.html">NEWS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="news/HEAD.html">version ?.?.?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="news/6-0-0.html">version 6.0.0</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="optlib.html">Extending ctags with Regex parser (<em>optlib</em>)</a><ul>
@@ -293,9 +299,9 @@ features.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.20.1: https://docutils.sourceforge.io/" />
 <title>ctags-incompatibilities</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Id: $Id: html4css1.css 8954 2022-01-20 10:10:25Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
 
-See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+See https://docutils.sourceforge.io/docs/howto/html-stylesheets.html for how to
 customize this style sheet.
 */
 
@@ -369,7 +369,7 @@ ul.auto-toc {
 <col class="docinfo-content" />
 <tbody valign="top">
 <tr><th class="docinfo-name">Version:</th>
-<td>6.0.0</td></tr>
+<td>6.1.0</td></tr>
 <tr class="manual-group field"><th class="docinfo-name">Manual group:</th><td class="field-body">Universal Ctags</td>
 </tr>
 <tr class="manual-section field"><th class="docinfo-name">Manual section:</th><td class="field-body">7</td>
@@ -412,13 +412,13 @@ macro definition tags. Universal Ctags uses patterns for the tags.</p>
 [source_file(s)]</tt>&quot; following the standard POSIX convention.</p>
 <p>Exuberant Ctags accepts a option following a source file.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags -o - foo.c --list-kinds<span class="operator">=</span>Sh
-<span class="generic output">f  functions</span>
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>foo.c<span class="whitespace"> </span>--list-kinds<span class="operator">=</span>Sh<span class="whitespace">
+</span><span class="generic output">f  functions</span>
 </pre>
 <p>Universal Ctags warns and ignores the option <tt class="docutils literal"><span class="pre">--list-kinds=Sh</span></tt> as follows.</p>
 <pre class="code console literal-block">
-<span class="generic prompt">$ </span>ctags -o - foo.c --list-kinds<span class="operator">=</span>Sh
-<span class="generic output">ctags: Warning: cannot open input file &quot;--list-kinds=Sh&quot; : No such file or directory
+<span class="generic prompt">$ </span>ctags<span class="whitespace"> </span>-o<span class="whitespace"> </span>-<span class="whitespace"> </span>foo.c<span class="whitespace"> </span>--list-kinds<span class="operator">=</span>Sh<span class="whitespace">
+</span><span class="generic output">ctags: Warning: cannot open input file &quot;--list-kinds=Sh&quot; : No such file or directory
 a       foo.c   /^void a () {}$/;&quot;      f       typeref:typename:void
 b       foo.c   /^void b () {}$/;&quot;      f       typeref:typename:void</span>
 </pre>

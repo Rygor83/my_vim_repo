@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>How to release a new version &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=e259d695"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -45,37 +41,104 @@
           <div class="body" role="main">
             
   <section id="how-to-release-a-new-version">
-<span id="releasing"></span><h1>How to release a new version<a class="headerlink" href="#how-to-release-a-new-version" title="Permalink to this heading">¶</a></h1>
+<span id="releasing"></span><h1>How to release a new version<a class="headerlink" href="#how-to-release-a-new-version" title="Link to this heading">¶</a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">Maintainer<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Masatake YAMATO &lt;<a class="reference external" href="mailto:yamato&#37;&#52;&#48;redhat&#46;com">yamato<span>&#64;</span>redhat<span>&#46;</span>com</a>&gt;</p>
 </dd>
 </dl>
-<hr class="docutils" />
 <ol class="arabic">
-<li><p>Update the version number (e.g. “5.9.0”, “5,9,0”) embedded in the following files:</p>
+<li><p>Update NEWS.rst</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Tmain/sandbox-version.d/stdout-expected.txt</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">main/ctags.h</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">win32/ctags.rc</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">win32/ctags.exe.manifest</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">win32/config_mvc.h</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">win32/config_mingw.h</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">misc/git-tag-maybe.sh</span></code></p></li>
+<li><p>New parsers</p></li>
+<li><p>Changes about ctags’ CLI and OUTPUT</p></li>
+<li><p>Changes about parsers’ kinds, roles, fields, extras, and parameters</p></li>
 </ul>
 </li>
+<li><p>Update the version numbers (e.g. “5.9.0”, “5,9,0”) embedded in the following files:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">configure.ac</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>AC_INIT</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">main/ctags.h</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PROGRAM_VERSION</p></li>
+<li><p>PROGRAM_COPYRIGHT</p></li>
+<li><p>OUTPUT_VERSION_CURRENT</p></li>
+<li><p>OUTPUT_VERSION_AGE</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win32/ctags.rc</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>FILEVERSION</p></li>
+<li><p>PRODUCTVERSION</p></li>
+<li><p>VALUE “FileVersion”</p></li>
+<li><p>VALUE “LegalCopyright”</p></li>
+<li><p>VALUE “ProductVersion”</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win32/ctags.exe.manifest</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>assemblyIdentity</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win32/config_mvc.h</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PACKAGE_STRING</p></li>
+<li><p>PACKAGE_VERSION</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win32/config_mingw.h</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PACKAGE_STRING</p></li>
+<li><p>PACKAGE_VERSION</p></li>
+<li><p>VERSION</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">misc/git-tag-maybe.sh</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>BASE</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NEWS.rst</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Changes in …</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Revise the version numbers in each parsers and their man pages</p></li>
+<li><p>Revise the version number in writer-json.c</p></li>
 <li><p>Regenerate rst files under <code class="docutils literal notranslate"><span class="pre">docs/man</span></code>.</p></li>
-<li><p>Put a version tag and push it to <code class="docutils literal notranslate"><span class="pre">github.com/universal-ctags/ctags</span></code></p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git tag v5.9.0
-<span class="gp">$ </span>git push upstream --tags
+<li><p>Put an annotation tag for the version and push it to <code class="docutils literal notranslate"><span class="pre">github.com/universal-ctags/ctags</span></code></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>v5.9.0<span class="w"> </span>-m<span class="w"> </span><span class="s1">&#39;Version 5.9.0&#39;</span>
+<span class="gp">$ </span>git<span class="w"> </span>push<span class="w"> </span>upstream<span class="w"> </span>--tags
 </pre></div>
 </div>
 </li>
-<li><p>Make tarbarll</p>
+<li><p>Make tarbarll in a freshly cloned directory</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./configure
-<span class="gp">$ </span>make clean
-<span class="gp">$ </span>make dist
+<span class="gp">$ </span>make<span class="w"> </span>distcheck
+<span class="gp">$ </span>make<span class="w"> </span>clean
+<span class="gp">$ </span>make<span class="w"> </span>dist
 </pre></div>
 </div>
 <p>You will get a file like universal-ctags-5.9.0.tar.gz.</p>
@@ -134,9 +197,9 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

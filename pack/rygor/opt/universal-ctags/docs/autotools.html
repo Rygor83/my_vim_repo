@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Building with configure (*nix including GNU/Linux) &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=e259d695"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -46,7 +42,7 @@
           <div class="body" role="main">
             
   <section id="building-with-configure-nix-including-gnu-linux">
-<h1>Building with configure (*nix including GNU/Linux)<a class="headerlink" href="#building-with-configure-nix-including-gnu-linux" title="Permalink to this heading">¶</a></h1>
+<h1>Building with configure (*nix including GNU/Linux)<a class="headerlink" href="#building-with-configure-nix-including-gnu-linux" title="Link to this heading">¶</a></h1>
 <p>If you are going to build Universal Ctags on a popular GNU/Linux
 distribution, you can install the tools and libraries that Universal Ctags
 requires (or may use) as packages. See <a class="reference internal" href="#gnu-linux-distributions">GNU/Linux distributions</a> about
@@ -66,7 +62,7 @@ If you use a (binary oriented) GNU/Linux distribution, <cite>autoreconf</cite> m
 be part of the <cite>autoconf</cite> package. In addition you may have to install
 <cite>automake</cite> and/or <cite>pkg-config</cite>, too.</p>
 <section id="gnu-linux-distributions">
-<h2>GNU/Linux distributions<a class="headerlink" href="#gnu-linux-distributions" title="Permalink to this heading">¶</a></h2>
+<h2>GNU/Linux distributions<a class="headerlink" href="#gnu-linux-distributions" title="Link to this heading">¶</a></h2>
 <p>Before running ./autogen.sh, install some packages.</p>
 <p>On Debian-based systems (including Ubuntu), do:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install \
@@ -92,23 +88,23 @@ be part of the <cite>autoconf</cite> package. In addition you may have to instal
 </div>
 </section>
 <section id="changing-the-executable-s-name">
-<h2>Changing the executable’s name<a class="headerlink" href="#changing-the-executable-s-name" title="Permalink to this heading">¶</a></h2>
+<h2>Changing the executable’s name<a class="headerlink" href="#changing-the-executable-s-name" title="Link to this heading">¶</a></h2>
 <p>On some systems, like certain BSDs, there is already a ‘ctags’ program in the base
 system, so it is somewhat inconvenient to have the same name for
 Universal Ctags. During the <code class="docutils literal notranslate"><span class="pre">configure</span></code> stage you can now change
 the name of the created executable.</p>
 <p>To add a prefix ‘ex’ which will result in ‘ctags’ being renamed to ‘exctags’:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./configure --program-prefix<span class="o">=</span>ex
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./configure<span class="w"> </span>--program-prefix<span class="o">=</span>ex
 </pre></div>
 </div>
 <p>To completely change the program’s name run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ ./configure --program-transform-name<span class="o">=</span><span class="s1">&#39;s/ctags/my_ctags/; s/etags/myemacs_tags/&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>./configure<span class="w"> </span>--program-transform-name<span class="o">=</span><span class="s1">&#39;s/ctags/my_ctags/; s/etags/myemacs_tags/&#39;</span>
 </pre></div>
 </div>
 <p>Please remember there is also an ‘etags’ installed alongside ‘ctags’ which you may also want to rename as shown above.</p>
 </section>
 <section id="cross-compilation">
-<h2>Cross-compilation<a class="headerlink" href="#cross-compilation" title="Permalink to this heading">¶</a></h2>
+<h2>Cross-compilation<a class="headerlink" href="#cross-compilation" title="Link to this heading">¶</a></h2>
 <p>The way of cross-compilation is a bit complicated because the
 build-system of ctags uses <cite>packcc</cite>, a code generator written in C
 language. It means that two C compilers should be installed on you build machine;
@@ -210,9 +206,9 @@ ctags readtags
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

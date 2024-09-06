@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Man pages &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css?v=514cf933" />
     
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/documentation_options.js?v=e259d695"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -45,7 +41,7 @@
           <div class="body" role="main">
             
   <section id="man-pages">
-<span id="id1"></span><h1>Man pages<a class="headerlink" href="#man-pages" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1>Man pages<a class="headerlink" href="#man-pages" title="Link to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags.1.html">ctags(1)</a><ul>
@@ -103,8 +99,8 @@
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-json-output.5.html">ctags-json-output(5)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#synopsis">SYNOPSIS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#description">DESCRIPTION</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#format">Format</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#data-type-used-in-a-field">Data type used in a field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#format">FORMAT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#data-type-used-in-a-field">DATA TYPE USED IN A FIELD</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-json-output.5.html#versions">VERSIONS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="man/ctags-json-output.5.html#change-since-0-0">Change since “0.0”</a></li>
 </ul>
@@ -146,6 +142,7 @@
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-optlib.7.html#examples">EXAMPLES</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="man/ctags-optlib.7.html#perl-pod">Perl Pod</a></li>
 <li class="toctree-l3"><a class="reference internal" href="man/ctags-optlib.7.html#using-scope-regex-flags">Using scope regex flags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-optlib.7.html#using-the-interval-table">Using the interval table</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-optlib.7.html#see-also">SEE ALSO</a></li>
@@ -161,7 +158,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-client-tools.7.html#redundant-kinds">REDUNDANT-KINDS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-client-tools.7.html#multiple-languages-for-an-input-file">MULTIPLE-LANGUAGES FOR AN INPUT FILE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-client-tools.7.html#multiple-languages-for-an-input-file">MULTIPLE-LANGUAGES FOR AN INPUT FILE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-client-tools.7.html#guest-parsers">Guest parsers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-client-tools.7.html#sub-parsers">Sub-parsers</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-client-tools.7.html#utilizing-readtags">UTILIZING READTAGS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="man/ctags-client-tools.7.html#build-filter-sorter-expressions">Build Filter/Sorter Expressions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="man/ctags-client-tools.7.html#build-filter-sorter-expressions-using-lisp-languages">Build Filter/Sorter Expressions using Lisp Languages</a></li>
@@ -226,7 +227,61 @@
 <li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-asm.7.html#known-limitations">Known limitations</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-asm.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-asm.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-asm.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-autoit.7.html">ctags-lang-autoit(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-autoit.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-autoit.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-autoit.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-autoit.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-autoit.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-automake.7.html">ctags-lang-automake(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-automake.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-automake.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-automake.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-automake.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-automake.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-c.7.html">ctags-lang-c(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-c.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html">ctags-lang-c++(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-c%2B%2B.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-cuda.7.html">ctags-lang-cuda(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-cuda.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-cuda.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-cuda.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-cuda.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-cuda.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-elm.7.html">ctags-lang-elm(7)</a><ul>
@@ -243,6 +298,16 @@
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-elm.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-fortran.7.html">ctags-lang-fortran(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-fortran.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-fortran.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-fortran.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-fortran.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-fortran.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-gdscript.7.html">ctags-lang-gdscript(7)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-gdscript.7.html#synopsis">SYNOPSIS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-gdscript.7.html#description">DESCRIPTION</a></li>
@@ -254,10 +319,12 @@
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-gdscript.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-inko.7.html">ctags-lang-inko(7)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html#synopsis">SYNOPSIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html#description">DESCRIPTION</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html#see-also">SEE ALSO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html">ctags-lang-i18nrubygem(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html#known-bugs">KNOWN BUGS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html#see-also">SEE ALSO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-i18nrubygem.7.html#references">REFERENCES</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-iPythonCell.7.html">ctags-lang-iPythonCell(7)</a><ul>
@@ -269,10 +336,19 @@
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-iPythonCell.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-inko.7.html">ctags-lang-inko(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-inko.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-javascript.7.html">ctags-lang-javascript(7)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-javascript.7.html#synopsis">SYNOPSIS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-javascript.7.html#description">DESCRIPTION</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-javascript.7.html#classes">CLASSES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-javascript.7.html#classes">CLASSES</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-javascript.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-javascript.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
@@ -285,6 +361,36 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-julia.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-kconfig.7.html">ctags-lang-kconfig(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-kconfig.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-kconfig.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-kconfig.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-kconfig.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-kconfig.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-ldscript.7.html">ctags-lang-ldscript(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-ldscript.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-ldscript.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-ldscript.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-ldscript.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-ldscript.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-markdown.7.html">ctags-lang-markdown(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-markdown.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-markdown.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-markdown.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-markdown.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-markdown.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-python.7.html">ctags-lang-python(7)</a><ul>
@@ -326,11 +432,35 @@
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-sql.7.html#references">REFERENCES</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-systemtap.7.html">ctags-lang-systemtap(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-systemtap.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-systemtap.7.html#description">DESCRIPTION</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-systemtap.7.html#guests">Guests</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-systemtap.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-systemtap.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-systemtap.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-tcl.7.html">ctags-lang-tcl(7)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-tcl.7.html#synopsis">SYNOPSIS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-tcl.7.html#description">DESCRIPTION</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-tcl.7.html#tagging-language-objects-of-oo-extensions">TAGGING language objects of OO Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-tcl.7.html#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-terraform.7.html">ctags-lang-terraform(7)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-terraform.7.html#synopsis">SYNOPSIS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-terraform.7.html#description">DESCRIPTION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-terraform.7.html#tips">TIPS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-terraform.7.html#extracting-variables-assigned-in-variable-definitions">Extracting variables assigned in Variable definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-terraform.7.html#known-bugs">KNOWN BUGS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-terraform.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/ctags-lang-verilog.7.html">ctags-lang-verilog(7)</a><ul>
@@ -343,6 +473,10 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-verilog.7.html#known-issues">KNOWN ISSUES</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-verilog.7.html#versions">VERSIONS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="man/ctags-lang-verilog.7.html#change-since-0-0">Change since “0.0”</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="man/ctags-lang-verilog.7.html#see-also">SEE ALSO</a></li>
 </ul>
 </li>
@@ -421,9 +555,9 @@
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

@@ -1,26 +1,22 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>ctags-lang-iPythonCell &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=e259d695"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ctags-lang-javascript" href="ctags-lang-javascript.7.html" />
-    <link rel="prev" title="ctags-lang-inko" href="ctags-lang-inko.7.html" /> 
+    <link rel="next" title="ctags-lang-inko" href="ctags-lang-inko.7.html" />
+    <link rel="prev" title="ctags-lang-i18nrubgem" href="ctags-lang-i18nrubygem.7.html" /> 
   </head><body>
     <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
@@ -29,10 +25,10 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="ctags-lang-javascript.7.html" title="ctags-lang-javascript"
+          <a href="ctags-lang-inko.7.html" title="ctags-lang-inko"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="ctags-lang-inko.7.html" title="ctags-lang-inko"
+          <a href="ctags-lang-i18nrubygem.7.html" title="ctags-lang-i18nrubgem"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Universal Ctags 0.3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
@@ -46,11 +42,11 @@
           <div class="body" role="main">
             
   <section id="ctags-lang-ipythoncell">
-<span id="ctags-lang-ipythoncell-7"></span><h1>ctags-lang-iPythonCell<a class="headerlink" href="#ctags-lang-ipythoncell" title="Permalink to this heading">¶</a></h1>
+<span id="ctags-lang-ipythoncell-7"></span><h1>ctags-lang-iPythonCell<a class="headerlink" href="#ctags-lang-ipythoncell" title="Link to this heading">¶</a></h1>
 <p>The man page of the iPythonCell parser for Universal Ctags</p>
 <dl class="field-list simple">
 <dt class="field-odd">Version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>6.0.0</p>
+<dd class="field-odd"><p>6.1.0</p>
 </dd>
 <dt class="field-even">Manual group<span class="colon">:</span></dt>
 <dd class="field-even"><p>Universal Ctags</p>
@@ -60,7 +56,7 @@
 </dd>
 </dl>
 <section id="synopsis">
-<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this heading">¶</a></h2>
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
 <div class="line-block">
 <div class="line"><strong>ctags</strong> … --extras=+{subparser} --languages=+iPythonCell,Python \</div>
 <div class="line-block">
@@ -70,7 +66,7 @@
 </div>
 </section>
 <section id="description">
-<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <p>iPythonCell parser is a subparser stacked on top of the Python parser.
 It works when:</p>
 <ul class="simple">
@@ -82,18 +78,18 @@ It works when:</p>
 (<a class="reference external" href="https://github.com/hanschen/vim-ipython-cell/blob/master/README.md">https://github.com/hanschen/vim-ipython-cell/blob/master/README.md</a>).</p>
 </section>
 <section id="kind-s">
-<h2>KIND(S)<a class="headerlink" href="#kind-s" title="Permalink to this heading">¶</a></h2>
+<h2>KIND(S)<a class="headerlink" href="#kind-s" title="Link to this heading">¶</a></h2>
 <p>The iPythonCell parser defines only a <code class="docutils literal notranslate"><span class="pre">cell</span></code> kind.</p>
 </section>
 <section id="extra-s">
-<h2>EXTRA(S)<a class="headerlink" href="#extra-s" title="Permalink to this heading">¶</a></h2>
+<h2>EXTRA(S)<a class="headerlink" href="#extra-s" title="Link to this heading">¶</a></h2>
 <p>Tagging cells staring with <code class="docutils literal notranslate"><span class="pre">##...</span></code> is disabled by default because
 the pattern is too generic; with that pattern unwanted tags can be extracted.</p>
 <p>Enable <code class="docutils literal notranslate"><span class="pre">doubleSharps</span></code> language specific extra for tagging cells
 staring with <code class="docutils literal notranslate"><span class="pre">##...</span></code>.</p>
 </section>
 <section id="customizing">
-<h2>CUSTOMIZING<a class="headerlink" href="#customizing" title="Permalink to this heading">¶</a></h2>
+<h2>CUSTOMIZING<a class="headerlink" href="#customizing" title="Link to this heading">¶</a></h2>
 <p>If your favorite cell pattern is not supported in the parser, you can
 define the pattern in your <code class="docutils literal notranslate"><span class="pre">.ctagd.d/your.ctags</span></code> or command lines.
 Here is an example how to support “<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">CTAGS:</span> <span class="pre">...</span></code>”:</p>
@@ -117,7 +113,7 @@ DO NOTING    input.py        /^      # CTAGS: DO NOTING$/;&quot;  c
 to avoid specifying the pattern repeatedly.</p>
 </section>
 <section id="see-also">
-<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <p><a class="reference internal" href="ctags.1.html#ctags-1"><span class="std std-ref">ctags(1)</span></a>, <a class="reference internal" href="ctags-client-tools.7.html#ctags-client-tools-7"><span class="std std-ref">ctags-client-tools(7)</span></a>, <a class="reference internal" href="ctags-lang-python.7.html#ctags-lang-python-7"><span class="std std-ref">ctags-lang-python(7)</span></a></p>
 </section>
 </section>
@@ -146,13 +142,13 @@ to avoid specifying the pattern repeatedly.</p>
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="ctags-lang-inko.7.html"
-                          title="previous chapter">ctags-lang-inko</a></p>
+    <p class="topless"><a href="ctags-lang-i18nrubygem.7.html"
+                          title="previous chapter">ctags-lang-i18nrubgem</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="ctags-lang-javascript.7.html"
-                          title="next chapter">ctags-lang-javascript</a></p>
+    <p class="topless"><a href="ctags-lang-inko.7.html"
+                          title="next chapter">ctags-lang-inko</a></p>
   </div>
 <div id="searchbox" style="display: none" role="search">
   <h3 id="searchlabel">Quick search</h3>
@@ -175,10 +171,10 @@ to avoid specifying the pattern repeatedly.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="ctags-lang-javascript.7.html" title="ctags-lang-javascript"
+          <a href="ctags-lang-inko.7.html" title="ctags-lang-inko"
              >next</a> |</li>
         <li class="right" >
-          <a href="ctags-lang-inko.7.html" title="ctags-lang-inko"
+          <a href="ctags-lang-i18nrubygem.7.html" title="ctags-lang-i18nrubgem"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Universal Ctags 0.3.0 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../man-pages.html" >Man pages</a> &#187;</li>
@@ -186,9 +182,9 @@ to avoid specifying the pattern repeatedly.</p>
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>

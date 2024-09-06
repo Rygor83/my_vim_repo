@@ -1,21 +1,17 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>ctags-faq &#8212; Universal Ctags 0.3.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/classic.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/classic.css?v=514cf933" />
     
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/documentation_options.js?v=e259d695"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -46,11 +42,11 @@
           <div class="body" role="main">
             
   <section id="ctags-faq">
-<span id="ctags-faq-7"></span><h1><a class="toc-backref" href="#id2" role="doc-backlink">ctags-faq</a><a class="headerlink" href="#ctags-faq" title="Permalink to this heading">¶</a></h1>
+<span id="ctags-faq-7"></span><h1><a class="toc-backref" href="#id2" role="doc-backlink">ctags-faq</a><a class="headerlink" href="#ctags-faq" title="Link to this heading">¶</a></h1>
 <p>Universal Ctags FAQ</p>
 <dl class="field-list simple">
 <dt class="field-odd">Version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>6.0.0</p>
+<dd class="field-odd"><p>6.1.0</p>
 </dd>
 <dt class="field-even">Manual group<span class="colon">:</span></dt>
 <dd class="field-even"><p>Universal Ctags</p>
@@ -88,22 +84,22 @@ It is based on <a class="reference external" href="http://ctags.sourceforge.net/
 </ul>
 </nav>
 <section id="description">
-<h2><a class="toc-backref" href="#id3" role="doc-backlink">DESCRIPTION</a><a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">DESCRIPTION</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
 <section id="what-is-the-difference-between-universal-ctags-and-exuberant-ctags">
-<h3><a class="toc-backref" href="#id4" role="doc-backlink">What is the difference between Universal Ctags and Exuberant Ctags?</a><a class="headerlink" href="#what-is-the-difference-between-universal-ctags-and-exuberant-ctags" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">What is the difference between Universal Ctags and Exuberant Ctags?</a><a class="headerlink" href="#what-is-the-difference-between-universal-ctags-and-exuberant-ctags" title="Link to this heading">¶</a></h3>
 <p>Universal Ctags is an unofficial fork of Exuberant Ctags.
 The differences are summarized in <a class="reference internal" href="ctags-incompatibilities.7.html#ctags-incompatibilities-7"><span class="std std-ref">ctags-incompatibilities(7)</span></a> man page.</p>
 <p>The most notable one is that Universal Ctags doesn’t read <code class="docutils literal notranslate"><span class="pre">~/.ctags</span></code> file.
 Instead, it reads <code class="docutils literal notranslate"><span class="pre">*.ctags</span></code> under <code class="docutils literal notranslate"><span class="pre">~/.ctags.d</span></code> directory.</p>
 </section>
 <section id="how-can-i-avoid-having-to-specify-my-favorite-option-every-time">
-<h3><a class="toc-backref" href="#id5" role="doc-backlink">How can I avoid having to specify my favorite option every time?</a><a class="headerlink" href="#how-can-i-avoid-having-to-specify-my-favorite-option-every-time" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">How can I avoid having to specify my favorite option every time?</a><a class="headerlink" href="#how-can-i-avoid-having-to-specify-my-favorite-option-every-time" title="Link to this heading">¶</a></h3>
 <p>Either by setting the environment variable <code class="docutils literal notranslate"><span class="pre">CTAGS</span></code> to your custom
 options, or putting them into a <code class="docutils literal notranslate"><span class="pre">~/.ctags.d/anyname.ctags</span></code> file in your home
 directory.</p>
 </section>
 <section id="what-are-these-strange-bits-of-text-beginning-with-which-follow-many-of-the-lines-in-the-tag-file">
-<h3><a class="toc-backref" href="#id6" role="doc-backlink">What are these strange bits of text beginning with <code class="docutils literal notranslate"><span class="pre">;&quot;</span></code> which follow many of the lines in the tag file?</a><a class="headerlink" href="#what-are-these-strange-bits-of-text-beginning-with-which-follow-many-of-the-lines-in-the-tag-file" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">What are these strange bits of text beginning with <code class="docutils literal notranslate"><span class="pre">;&quot;</span></code> which follow many of the lines in the tag file?</a><a class="headerlink" href="#what-are-these-strange-bits-of-text-beginning-with-which-follow-many-of-the-lines-in-the-tag-file" title="Link to this heading">¶</a></h3>
 <p>These are <em>extension flags</em>. They are added in order to provide extra
 information about the tag that may be utilized by the editor in order to
 more intelligently handle tags. They are appended to the EX command part of
@@ -121,7 +117,7 @@ ask the supplier of your editor to implement handling of this feature of EX
 commands.</p>
 </section>
 <section id="why-can-t-i-jump-to-class-member">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Why can’t I jump to <code class="docutils literal notranslate"><span class="pre">class::member</span></code>?</a><a class="headerlink" href="#why-can-t-i-jump-to-class-member" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Why can’t I jump to <code class="docutils literal notranslate"><span class="pre">class::member</span></code>?</a><a class="headerlink" href="#why-can-t-i-jump-to-class-member" title="Link to this heading">¶</a></h3>
 <p>Because, by default, ctags only generates tags for the separate identifiers
 found in the source files. If you specify the <code class="docutils literal notranslate"><span class="pre">--extra=+q</span></code> option, then
 ctags will also generate a second, class-qualified tag for each class member
@@ -129,7 +125,7 @@ ctags will also generate a second, class-qualified tag for each class member
 <code class="docutils literal notranslate"><span class="pre">class.method</span></code> for Eiffel and Java.</p>
 </section>
 <section id="why-do-i-end-up-on-the-wrong-line-when-i-jump-to-a-tag">
-<h3><a class="toc-backref" href="#id8" role="doc-backlink">Why do I end up on the wrong line when I jump to a tag?</a><a class="headerlink" href="#why-do-i-end-up-on-the-wrong-line-when-i-jump-to-a-tag" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Why do I end up on the wrong line when I jump to a tag?</a><a class="headerlink" href="#why-do-i-end-up-on-the-wrong-line-when-i-jump-to-a-tag" title="Link to this heading">¶</a></h3>
 <p>By default, ctags encodes the line number in the file where macro (<code class="docutils literal notranslate"><span class="pre">#define</span></code>)
 tags are found. This was done to remain compatible with the original UNIX
 version of ctags. If you change the file containing the tag without
@@ -142,7 +138,7 @@ exclusively for macro tags, but have so far resisted changing the default
 behavior of Exuberant (and Universal) Ctags to behave differently.</p>
 </section>
 <section id="how-do-i-jump-to-the-tag-i-want-instead-of-the-wrong-one-by-the-same-name">
-<h3><a class="toc-backref" href="#id9" role="doc-backlink">How do I jump to the tag I want instead of the wrong one by the same name?</a><a class="headerlink" href="#how-do-i-jump-to-the-tag-i-want-instead-of-the-wrong-one-by-the-same-name" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">How do I jump to the tag I want instead of the wrong one by the same name?</a><a class="headerlink" href="#how-do-i-jump-to-the-tag-i-want-instead-of-the-wrong-one-by-the-same-name" title="Link to this heading">¶</a></h3>
 <p>A tag file is simple a list of tag names and where to find them. If there
 are duplicate entries, you often end up going to the wrong one because the
 tag file is sorted and your editor locates the first one in the tag file.</p>
@@ -152,7 +148,7 @@ matches and choosing the best one under the circumstances. Vim also provides
 commands which allow for selection of the desired matching tag.</p>
 </section>
 <section id="how-can-i-locate-all-references-to-a-specific-function-or-variable">
-<h3><a class="toc-backref" href="#id10" role="doc-backlink">How can I locate all references to a specific function or variable?</a><a class="headerlink" href="#how-can-i-locate-all-references-to-a-specific-function-or-variable" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">How can I locate all references to a specific function or variable?</a><a class="headerlink" href="#how-can-i-locate-all-references-to-a-specific-function-or-variable" title="Link to this heading">¶</a></h3>
 <p>There are several packages already available which provide this capability.
 Namely, these are: GLOBAL source code tag system, GNU id-utils, cscope,
 and cflow. As of this writing, they can be found in the following locations:</p>
@@ -164,7 +160,7 @@ and cflow. As of this writing, they can be found in the following locations:</p>
 </ul>
 </section>
 <section id="why-does-appending-tags-to-a-tag-file-tag-so-long">
-<h3><a class="toc-backref" href="#id11" role="doc-backlink">Why does appending tags to a tag file tag so long?</a><a class="headerlink" href="#why-does-appending-tags-to-a-tag-file-tag-so-long" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Why does appending tags to a tag file tag so long?</a><a class="headerlink" href="#why-does-appending-tags-to-a-tag-file-tag-so-long" title="Link to this heading">¶</a></h3>
 <p>Sometimes, in an attempt to build a global tag file for all source files in
 a large source tree of many directories, someone will make an attempt to run
 ctags in append (<code class="docutils literal notranslate"><span class="pre">-a</span></code>) mode on every directory in the hierarchy. Each time
@@ -175,7 +171,7 @@ time increases arithmetically.</p>
 use of the <code class="docutils literal notranslate"><span class="pre">--recurse</span></code> (or <code class="docutils literal notranslate"><span class="pre">-R</span></code>) option of ctags by executing the following
 command in the root of the directory hierarchy (thus running ctags only once):</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags -R
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags<span class="w"> </span>-R
 </pre></div>
 </div>
 </div></blockquote>
@@ -185,7 +181,7 @@ tag file is completely built, use the sort command to manually sort the
 final tag file, or let the final invocation of ctags sort the file.</p>
 </section>
 <section id="how-should-i-set-up-tag-files-for-a-multi-level-directory-hierarchy">
-<h3><a class="toc-backref" href="#id12" role="doc-backlink">How should I set up tag files for a multi-level directory hierarchy?</a><a class="headerlink" href="#how-should-i-set-up-tag-files-for-a-multi-level-directory-hierarchy" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">How should I set up tag files for a multi-level directory hierarchy?</a><a class="headerlink" href="#how-should-i-set-up-tag-files-for-a-multi-level-directory-hierarchy" title="Link to this heading">¶</a></h3>
 <p>There are a few ways of approaching this:</p>
 <ol class="arabic simple">
 <li><p>A local tag file in each directory containing only the tags for source
@@ -306,14 +302,14 @@ hierarchy by making a shell script, call it <code class="docutils literal notran
 following lines:</p>
 <blockquote>
 <div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-<span class="nb">cd</span> <span class="nv">$1</span>
-ctags *
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$1</span>
+ctags<span class="w"> </span>*
 </pre></div>
 </div>
 </div></blockquote>
 <p>Now execute the following command:</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>find * -type d -exec dirtags <span class="o">{}</span> <span class="se">\;</span>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>find<span class="w"> </span>*<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-exec<span class="w"> </span>dirtags<span class="w"> </span><span class="o">{}</span><span class="w"> </span><span class="se">\;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -329,8 +325,8 @@ source file:</p>
 </li>
 <li><p>Build the global tag file:</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/project
-ctags --file-scope<span class="o">=</span>no -R
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/project
+ctags<span class="w"> </span>--file-scope<span class="o">=</span>no<span class="w"> </span>-R
 </pre></div>
 </div>
 </div></blockquote>
@@ -351,10 +347,10 @@ this is done as follows:</p>
 <code class="docutils literal notranslate"><span class="pre">dirtags</span></code> script of step 1 with the following:</p>
 <blockquote>
 <div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
-<span class="nb">cd</span> <span class="nv">$1</span>
-ctags *
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$1</span>
+ctags<span class="w"> </span>*
 <span class="c1"># Now append the non-static tags from descendent directories</span>
-find * -type d -prune -print <span class="p">|</span> ctags -aR --file-scope<span class="o">=</span>no -L-
+find<span class="w"> </span>*<span class="w"> </span>-type<span class="w"> </span>d<span class="w"> </span>-prune<span class="w"> </span>-print<span class="w"> </span><span class="p">|</span><span class="w"> </span>ctags<span class="w"> </span>-aR<span class="w"> </span>--file-scope<span class="o">=</span>no<span class="w"> </span>-L-
 </pre></div>
 </div>
 </div></blockquote>
@@ -373,28 +369,28 @@ interprets the paths as relative to the current directory, we need to
 build the global tag file with absolute path names. This can be
 accomplished by replacing step 2 with the following:</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/project
-ctags --file-scope<span class="o">=</span>no -R <span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/project
+ctags<span class="w"> </span>--file-scope<span class="o">=</span>no<span class="w"> </span>-R<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>
 </pre></div>
 </div>
 </div></blockquote>
 </section>
 <section id="does-universal-ctags-support-unicode-file-names">
-<h3><a class="toc-backref" href="#id13" role="doc-backlink">Does Universal Ctags support Unicode file names?</a><a class="headerlink" href="#does-universal-ctags-support-unicode-file-names" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Does Universal Ctags support Unicode file names?</a><a class="headerlink" href="#does-universal-ctags-support-unicode-file-names" title="Link to this heading">¶</a></h3>
 <p>Yes, Unicode file names are supported on unix-like platforms (Linux, macOS,
 Cygwin, etc.).</p>
-<p>However, on Windows, you need to use Windows 10 version 1903 or later to use
+<p>However, on MS Windows, you need to use Windows 10 version 1903 or later to use
 Unicode file names. (This is an experimental feature, though.) On older versions
 on Windows, Universal Ctags only support file names represented in the current
 code page. If you still want to use Unicode file names on them, use Cygwin or
 MSYS2 version of Universal Ctags as a workaround.</p>
 </section>
 <section id="why-does-zsh-cause-zsh-no-matches-found-error">
-<h3><a class="toc-backref" href="#id14" role="doc-backlink">Why does zsh cause “zsh: no matches found” error?</a><a class="headerlink" href="#why-does-zsh-cause-zsh-no-matches-found-error" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Why does zsh cause “zsh: no matches found” error?</a><a class="headerlink" href="#why-does-zsh-cause-zsh-no-matches-found-error" title="Link to this heading">¶</a></h3>
 <p>zsh causes error on the following cases;</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags --extra<span class="o">=</span>+* ...
-ctags --exclude<span class="o">=</span>foo/* ...
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags<span class="w"> </span>--extra<span class="o">=</span>+*<span class="w"> </span>...
+ctags<span class="w"> </span>--exclude<span class="o">=</span>foo/*<span class="w"> </span>...
 </pre></div>
 </div>
 </div></blockquote>
@@ -408,28 +404,28 @@ the command to abort; set <code class="docutils literal notranslate"><span class
 <p>You may add “<code class="docutils literal notranslate"><span class="pre">setopt</span> <span class="pre">nonomatch</span></code>” on your <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>. Or you can escape glob
 patterns with backslash;</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags --extra<span class="o">=</span>+<span class="se">\*</span> ...
-ctags --exclude<span class="o">=</span>foo/<span class="se">\*</span> ...
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags<span class="w"> </span>--extra<span class="o">=</span>+<span class="se">\*</span><span class="w"> </span>...
+ctags<span class="w"> </span>--exclude<span class="o">=</span>foo/<span class="se">\*</span><span class="w"> </span>...
 </pre></div>
 </div>
 </div></blockquote>
 <p>Or quote them;</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags <span class="s1">&#39;--extra=+*&#39;</span> ...
-ctags <span class="s1">&#39;--exclude=foo/*&#39;</span> ...
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ctags<span class="w"> </span><span class="s1">&#39;--extra=+*&#39;</span><span class="w"> </span>...
+ctags<span class="w"> </span><span class="s1">&#39;--exclude=foo/*&#39;</span><span class="w"> </span>...
 </pre></div>
 </div>
 </div></blockquote>
 </section>
 </section>
 <section id="see-also">
-<h2><a class="toc-backref" href="#id15" role="doc-backlink">SEE ALSO</a><a class="headerlink" href="#see-also" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">SEE ALSO</a><a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
 <p>The official Universal Ctags web site at:</p>
 <p><a class="reference external" href="https://ctags.io/">https://ctags.io/</a></p>
 <p><a class="reference internal" href="ctags.1.html#ctags-1"><span class="std std-ref">ctags(1)</span></a>, <a class="reference internal" href="tags.5.html#tags-5"><span class="std std-ref">tags(5)</span></a></p>
 </section>
 <section id="author">
-<h2><a class="toc-backref" href="#id16" role="doc-backlink">AUTHOR</a><a class="headerlink" href="#author" title="Permalink to this heading">¶</a></h2>
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">AUTHOR</a><a class="headerlink" href="#author" title="Link to this heading">¶</a></h2>
 <p>This FAQ is based on <a class="reference external" href="http://ctags.sourceforge.net/faq.html">Exuberant Ctags FAQ</a> by
 Darren Hiebert and <a class="reference external" href="mailto:vberthoux&#37;&#52;&#48;users&#46;sourceforge&#46;net">vberthoux<span>&#64;</span>users<span>&#46;</span>sourceforge<span>&#46;</span>net</a></p>
 <p>Universal Ctags project: <a class="reference external" href="https://ctags.io/">https://ctags.io/</a></p>
@@ -510,9 +506,9 @@ Darren Hiebert and <a class="reference external" href="mailto:vberthoux&#37;&#52
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &#169; Copyright 2015-2022, Universal Ctags Team.
-      Last updated on 16 Dec 2022.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.3.0.
+    &#169; Copyright 2015-2022, Universal Ctags Team.
+      Last updated on 29 Dec 2023.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
     </div>
   </body>
 </html>
